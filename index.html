@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Alzarsi Ltda. importa y distribuye productos de consumo masivo para hogares, comercios y profesionales de Bolivia.">
+  <meta name="theme-color" content="#003F6B">
+
+  <title>Alzarsi Ltda. | Marcas globales, valor local</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <header class="site-header surface-header" id="siteHeader">
+    <div class="header-shell layout-shell">
+      <a class="brand-link header-brand" href="#inicio" aria-label="Ir al inicio">
+        <img class="brand-logo" src="assets/Alzarsi-logo.png" alt="Alzarsi Ltda.">
+      </a>
+
+      <nav class="desktop-navigation navigation-main" aria-label="Navegación principal">
+        <a class="navigation-link" href="#empresa">Quiénes somos</a>
+        <a class="navigation-link" href="#marcas">Nuestras marcas</a>
+        <a class="navigation-link" href="#productos">Productos</a>
+        <a class="navigation-link" href="#recetas">Recetas</a>
+        <a class="navigation-link" href="#novedades">Novedades</a>
+        <a class="navigation-link" href="#multimedia">Multimedia</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="button-contact header-contact" href="#contacto">Contacto</a>
+
+        <button
+          class="menu-trigger"
+          id="menuButton"
+          type="button"
+          aria-expanded="false"
+          aria-controls="mobileMenu"
+          aria-label="Abrir menú"
+        >
+          <span class="menu-lines" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-navigation" id="mobileMenu" aria-label="Navegación móvil">
+      <div class="mobile-navigation-inner layout-shell">
+        <a class="mobile-navigation-link" href="#empresa">Quiénes somos</a>
+        <a class="mobile-navigation-link" href="#marcas">Nuestras marcas</a>
+        <a class="mobile-navigation-link" href="#productos">Productos</a>
+        <a class="mobile-navigation-link" href="#recetas">Recetas</a>
+        <a class="mobile-navigation-link" href="#novedades">Novedades</a>
+        <a class="mobile-navigation-link" href="#multimedia">Multimedia</a>
+        <a class="mobile-navigation-contact" href="#contacto">Contactar a Alzarsi</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section" id="inicio">
+      <div class="hero-media">
+        <div class="hero-slide is-active" data-slide="0">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1900&q=88"
+            alt="Preparación de alimentos en una cocina familiar"
+          >
+        </div>
+
+        <div class="hero-slide" data-slide="1">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1601599561213-832382fd07ba?auto=format&fit=crop&w=1900&q=88"
+            alt="Operación logística y distribución de productos"
+          >
+        </div>
+
+        <div class="hero-slide" data-slide="2">
+          <img
+            class="hero-image"
+            src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1900&q=88"
+            alt="Consumidora seleccionando productos en un comercio"
+          >
+        </div>
+
+        <div class="hero-overlay"></div>
+      </div>
+
+      <div class="hero-content layout-shell">
+        <div class="hero-panel editorial-notch">
+          <p class="eyebrow hero-eyebrow">Conectando marcas, mercados y familias</p>
+
+          <h1 class="hero-title">
+            Calidad global,<br>
+            cerca de ti.
+          </h1>
+
+          <p class="hero-description">
+            Importamos y distribuimos marcas confiables para hogares, comercios
+            y profesionales de la gastronomía boliviana.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="button-primary" href="#marcas">Conoce nuestras marcas</a>
+            <a class="button-secondary" href="#empresa">Nuestra trayectoria</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-pagination">
+        <button class="hero-dot is-active" data-slide-to="0" aria-label="Mostrar imagen 1"></button>
+        <button class="hero-dot" data-slide-to="1" aria-label="Mostrar imagen 2"></button>
+        <button class="hero-dot" data-slide-to="2" aria-label="Mostrar imagen 3"></button>
+      </div>
+    </section>
+
+    <section class="brands-section section-space" id="marcas">
+      <div class="layout-shell">
+        <div class="section-heading editorial-heading">
+          <div class="heading-primary">
+            <p class="eyebrow">Nuestro portafolio</p>
+            <h2 class="section-title">Marcas para cada mesa.</h2>
+          </div>
+
+          <p class="heading-description">
+            Seleccionamos productos reconocidos por su calidad, consistencia y
+            capacidad de acompañar la vida cotidiana de las familias bolivianas.
+          </p>
+        </div>
+
+        <div class="brand-grid">
+          <a class="brand-cell offset-small" href="#">
+            <span class="brand-name">Lee Kum Kee</span>
+            <span class="brand-action">Conocer marca</span>
+          </a>
+
+          <a class="brand-cell" href="#">
+            <span class="brand-name brand-red">KIKKO</span>
+            <span class="brand-action">Conocer marca</span>
+          </a>
+
+          <a class="brand-cell offset-medium" href="#">
+            <span class="brand-name brand-blue">SANORIZA</span>
+            <span class="brand-action">Conocer marca</span>
+          </a>
+
+          <a class="brand-cell" href="#">
+            <span class="brand-name">EL CAZADOR</span>
+            <span class="brand-action">Conocer marca</span>
+          </a>
+
+          <a class="brand-cell offset-small" href="#">
+            <span class="brand-name brand-red">ARROZAME</span>
+            <span class="brand-action">Conocer marca</span>
+          </a>
+
+          <a class="brand-cell" href="#">
+            <span class="brand-name brand-blue">BIOPLAST</span>
+            <span class="brand-action">Conocer marca</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="company-section section-space" id="empresa">
+      <div class="company-layout layout-shell-wide">
+        <div class="company-image image-reveal">
+          <img
+            src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1500&q=88"
+            alt="Equipo de distribución trabajando en un centro logístico"
+          >
+        </div>
+
+        <div class="company-copy">
+          <div class="company-copy-inner">
+            <p class="eyebrow">Quiénes somos</p>
+
+            <h2 class="section-title">
+              Experiencia local.<br>
+              Visión internacional.
+            </h2>
+
+            <span class="short-rule"></span>
+
+            <p>
+              Alzarsi es una empresa 100% boliviana fundada en 2008 por
+              profesionales especializados en retail y canal Horeca.
+            </p>
+
+            <p>
+              Combinamos selección, importación, logística y distribución para
+              acercar productos confiables a comercios y familias de todo el país.
+            </p>
+
+            <a class="button-outline" href="#">Conocer nuestra historia <span>→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products-section section-space" id="productos">
+      <div class="layout-shell">
+        <div class="section-heading centered-heading">
+          <p class="eyebrow">Selección destacada</p>
+          <h2 class="section-title">Productos para descubrir</h2>
+          <p>
+            Soluciones confiables para la cocina diaria, el canal gastronómico
+            y los comercios de Bolivia.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card">
+            <div class="product-image product-notch">
+              <span class="product-category">Salsas y condimentos</span>
+              <img
+                src="https://images.unsplash.com/photo-1612257999756-2d5b4eb2f8ab?auto=format&fit=crop&w=800&q=86"
+                alt="Selección de salsas y condimentos"
+              >
+            </div>
+            <h3>Sabores del mundo</h3>
+            <p>Salsas y acompañamientos para ampliar cada menú.</p>
+            <a href="#">Ver productos <span>→</span></a>
+          </article>
+
+          <article class="product-card product-shift">
+            <div class="product-image product-notch">
+              <span class="product-category">Pastas</span>
+              <img
+                src="https://images.unsplash.com/photo-1551892374-ecf8754cf8b0?auto=format&fit=crop&w=800&q=86"
+                alt="Pasta preparada con ingredientes frescos"
+              >
+            </div>
+            <h3>Cocina cotidiana</h3>
+            <p>Pastas versátiles para hogares y cocinas profesionales.</p>
+            <a href="#">Ver productos <span>→</span></a>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image product-notch">
+              <span class="product-category">Arroces</span>
+              <img
+                src="https://images.unsplash.com/photo-1536304993881-ff6e9eefa2a6?auto=format&fit=crop&w=800&q=86"
+                alt="Granos de arroz seleccionados"
+              >
+            </div>
+            <h3>Calidad que rinde</h3>
+            <p>Granos seleccionados para compartir todos los días.</p>
+            <a href="#">Ver productos <span>→</span></a>
+          </article>
+
+          <article class="product-card product-shift">
+            <div class="product-image product-notch">
+              <span class="product-category">Hogar</span>
+              <img
+                src="https://images.unsplash.com/photo-1583947581924-860bda6a26df?auto=format&fit=crop&w=800&q=86"
+                alt="Productos funcionales para el hogar"
+              >
+            </div>
+            <h3>Soluciones prácticas</h3>
+            <p>Productos funcionales para espacios limpios y ordenados.</p>
+            <a href="#">Ver productos <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="value-mosaic">
+      <div class="mosaic-layout layout-shell-wide">
+        <article class="mosaic-copy mosaic-blue">
+          <div>
+            <p class="eyebrow eyebrow-light">Nuestra forma de trabajar</p>
+            <h2>Confianza en cada entrega.</h2>
+            <p>
+              Relaciones comerciales sólidas, atención cercana y cumplimiento
+              en cada etapa.
+            </p>
+            <a href="#contacto">Hablemos de negocios</a>
+          </div>
+        </article>
+
+        <div class="mosaic-image image-reveal">
+          <img
+            src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1100&q=86"
+            alt="Relación de confianza entre socios comerciales"
+          >
+        </div>
+
+        <article class="mosaic-copy mosaic-deep">
+          <div>
+            <p class="eyebrow eyebrow-light">Cobertura</p>
+            <h2>Cerca de nuestros clientes.</h2>
+            <p>
+              Oficinas y equipos de distribución preparados para responder a
+              las necesidades de cada mercado.
+            </p>
+            <a href="#contacto">Consultar cobertura</a>
+          </div>
+        </article>
+
+        <div class="mosaic-image wide-image image-reveal">
+          <img
+            src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1300&q=86"
+            alt="Platos preparados para compartir"
+          >
+        </div>
+
+        <article class="mosaic-copy mosaic-graphite">
+          <div>
+            <p class="eyebrow eyebrow-light">A quiénes atendemos</p>
+            <h2>Soluciones para crecer juntos.</h2>
+            <p>
+              Comercios, distribuidores, restaurantes y profesionales
+              gastronómicos.
+            </p>
+            <a href="#contacto">Realizar una consulta</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="news-section section-space" id="novedades">
+      <div class="layout-shell">
+        <div class="section-heading news-heading">
+          <div>
+            <p class="eyebrow">Alzarsi al día</p>
+            <h2 class="section-title">Noticias y eventos</h2>
+          </div>
+          <a class="text-link" href="#">Ver todas las novedades</a>
+        </div>
+
+        <div class="news-layout">
+          <article class="news-feature">
+            <div class="news-image image-reveal">
+              <img
+                src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1400&q=86"
+                alt="Encuentro gastronómico"
+              >
+            </div>
+
+            <div class="news-content">
+              <p class="eyebrow">Evento destacado</p>
+              <h3>Sabores que reúnen a nuestra comunidad</h3>
+              <p>
+                Experiencias, recetas y nuevas formas de disfrutar las marcas
+                que forman parte de Alzarsi.
+              </p>
+              <a href="#">Conocer el evento <span>→</span></a>
+            </div>
+          </article>
+
+          <div class="news-secondary">
+            <article class="news-compact">
+              <div class="compact-image image-reveal">
+                <img
+                  src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=850&q=86"
+                  alt="Receta de arroz para compartir"
+                >
+              </div>
+              <div class="compact-copy">
+                <p class="eyebrow">Recetas</p>
+                <h3>Ideas para cocinar y compartir</h3>
+                <a href="#recetas">Descubrir <span>→</span></a>
+              </div>
+            </article>
+
+            <article class="news-compact reverse-compact">
+              <div class="compact-copy blue-compact">
+                <p class="eyebrow eyebrow-light">Novedades</p>
+                <h3>Nuevos productos, la misma confianza</h3>
+                <a href="#productos">Conocer más <span>→</span></a>
+              </div>
+              <div class="compact-image image-reveal">
+                <img
+                  src="https://images.unsplash.com/photo-1608686207856-001b95cf60ca?auto=format&fit=crop&w=850&q=86"
+                  alt="Productos disponibles en un comercio"
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recipes-section section-space" id="recetas">
+      <div class="layout-shell">
+        <div class="centered-heading section-heading light-heading">
+          <p class="eyebrow eyebrow-light">Inspiración en la cocina</p>
+          <h2 class="section-title">Recetas para compartir</h2>
+        </div>
+
+        <div class="recipe-grid">
+          <article class="recipe-card">
+            <div class="recipe-image image-reveal">
+              <img
+                src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=900&q=86"
+                alt="Pasta mediterránea"
+              >
+            </div>
+            <p class="recipe-detail">Fácil · 30 minutos</p>
+            <h3>Pasta mediterránea</h3>
+            <a href="#">Ver receta <span>→</span></a>
+          </article>
+
+          <article class="recipe-card lifted-recipe">
+            <div class="recipe-image image-reveal">
+              <img
+                src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=900&q=86"
+                alt="Salteado oriental"
+              >
+            </div>
+            <p class="recipe-detail">Intermedio · 40 minutos</p>
+            <h3>Salteado oriental</h3>
+            <a href="#">Ver receta <span>→</span></a>
+          </article>
+
+          <article class="recipe-card">
+            <div class="recipe-image image-reveal">
+              <img
+                src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?auto=format&fit=crop&w=900&q=86"
+                alt="Arroz especial"
+              >
+            </div>
+            <p class="recipe-detail">Familiar · 45 minutos</p>
+            <h3>Arroz especial</h3>
+            <a href="#">Ver receta <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="multimedia-section section-space" id="multimedia">
+      <div class="multimedia-layout layout-shell">
+        <div class="multimedia-copy">
+          <p class="eyebrow">Multimedia</p>
+          <h2 class="section-title">Historias en movimiento.</h2>
+          <p>
+            Conoce nuestras actividades, marcas y momentos junto a clientes y
+            consumidores de toda Bolivia.
+          </p>
+          <a class="button-outline" href="#">Explorar multimedia <span>→</span></a>
+        </div>
+
+        <a class="video-feature image-reveal" href="#" aria-label="Explorar contenido multimedia">
+          <img
+            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1500&q=86"
+            alt="Preparación gastronómica con productos Alzarsi"
+          >
+          <span class="video-shade"></span>
+          <span class="video-button" aria-hidden="true">▶</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="inquiry-section section-space" id="contacto">
+      <div class="inquiry-shell layout-shell">
+        <div class="inquiry-heading">
+          <p class="eyebrow">Contacto comercial</p>
+          <h2 class="section-title">¿Cómo podemos ayudarte?</h2>
+          <p>
+            Déjanos tu consulta y nuestro equipo preparará una respuesta para
+            tu comercio, restaurante o proyecto de distribución.
+          </p>
+
+          <div class="contact-details">
+            <a href="tel:+59133494777">
+              <span>Teléfono</span>
+              +591 3 349 4777
+            </a>
+
+            <a href="https://wa.me/59172177160" target="_blank" rel="noopener">
+              <span>WhatsApp</span>
+              +591 721 77160
+            </a>
+
+            <a href="mailto:comercial@alzarsiltda.com">
+              <span>Correo comercial</span>
+              comercial@alzarsiltda.com
+            </a>
+          </div>
+        </div>
+
+        <form class="inquiry-form" id="inquiryForm">
+          <div class="form-grid">
+            <label class="field-group">
+              <span>Nombre y apellido *</span>
+              <input type="text" name="name" autocomplete="name" required>
+            </label>
+
+            <label class="field-group shifted-field">
+              <span>Empresa</span>
+              <input type="text" name="company" autocomplete="organization">
+            </label>
+
+            <label class="field-group">
+              <span>Teléfono o celular *</span>
+              <input type="tel" name="phone" autocomplete="tel" required>
+            </label>
+
+            <label class="field-group shifted-field">
+              <span>Correo electrónico *</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+
+            <label class="field-group full-field">
+              <span>Tipo de consulta *</span>
+              <select name="profile" required>
+                <option value="">Selecciona una opción</option>
+                <option value="Comercio o supermercado">Comercio o supermercado</option>
+                <option value="Restaurante o canal Horeca">Restaurante o canal Horeca</option>
+                <option value="Distribución">Distribución</option>
+                <option value="Consumidor final">Consumidor final</option>
+                <option value="Proveedor o marca">Proveedor o marca</option>
+                <option value="Otra consulta">Otra consulta</option>
+              </select>
+            </label>
+
+            <label class="field-group full-field">
+              <span>Mensaje *</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+          </div>
+
+          <div class="form-footer">
+            <p>
+              Al enviar tu consulta se abrirá WhatsApp con la información
+              preparada para el equipo comercial de Alzarsi.
+            </p>
+            <button class="button-primary form-button" type="submit">
+              Enviar consulta
+            </button>
+          </div>
+
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-main layout-shell">
+      <div class="footer-brand">
+        <img src="assets/Alzarsi-logo-white.png" alt="Alzarsi Ltda.">
+        <p>
+          Conectando marcas, mercados y familias desde 2008.
+        </p>
+
+        <div class="social-links">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="TikTok">tk</a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Empresa</h3>
+        <a href="#empresa">Quiénes somos</a>
+        <a href="#marcas">Nuestras marcas</a>
+        <a href="#novedades">Noticias y eventos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contenido</h3>
+        <a href="#productos">Productos</a>
+        <a href="#recetas">Recetas</a>
+        <a href="#multimedia">Galería de fotos</a>
+        <a href="#multimedia">Galería de videos</a>
+        <a href="#multimedia">Redes sociales</a>
+      </div>
+
+      <div class="footer-column contact-column">
+        <h3>Contacto</h3>
+        <a href="tel:+59133494777">+591 3 349 4777</a>
+        <a href="https://wa.me/59172177160" target="_blank" rel="noopener">
+          WhatsApp: +591 721 77160
+        </a>
+        <a href="mailto:comercial@alzarsiltda.com">
+          comercial@alzarsiltda.com
+        </a>
+        <p>
+          Av. Luis Saavedra Suárez N.º 9335<br>
+          Urb. El Remanso II, UV 334, MZA 9<br>
+          Santa Cruz de la Sierra, Bolivia
+        </p>
+        <p>Lunes a viernes · 08:00–16:00</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom layout-shell">
+      <p>© <span id="currentYear"></span> Alzarsi Ltda. Todos los derechos reservados.</p>
+
+      <div>
+        <a href="#">Política de privacidad</a>
+        <a href="#">Términos de uso</a>
+        <a href="#">Preferencias de cookies</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
