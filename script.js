@@ -24,14 +24,29 @@ const setMenuState = (isOpen) => {
 };
 
 const displaySlide = (index) => {
-  activeSlide = (index + slides.length) % slides.length;
+  if (!slides.length) return;
+
+  const nextSlide = (index + slides.length) % slides.length;
+  const previousSlide = activeSlide;
+
+  slides.forEach((slide) => {
+    slide.classList.remove("is-leaving");
+  });
+
+  if (
+    slides[previousSlide] &&
+    previousSlide !== nextSlide
+  ) {
+    slides[previousSlide].classList.add("is-leaving");
+  }
+
+  activeSlide = nextSlide;
 
   slides.forEach((slide, slideIndex) => {
-    slide.classList.toggle("is-active", slideIndex === activeSlide);
-    slide.setAttribute(
-      "aria-hidden",
-      String(slideIndex !== activeSlide)
-    );
+    const isCurrent = slideIndex === activeSlide;
+
+    slide.classList.toggle("is-active", isCurrent);
+    slide.setAttribute("aria-hidden", String(!isCurrent));
   });
 
   slideDots.forEach((dot, dotIndex) => {
@@ -40,6 +55,14 @@ const displaySlide = (index) => {
     dot.classList.toggle("is-active", isCurrent);
     dot.setAttribute("aria-current", isCurrent ? "true" : "false");
   });
+
+  window.setTimeout(() => {
+    slides.forEach((slide, slideIndex) => {
+      if (slideIndex !== activeSlide) {
+        slide.classList.remove("is-leaving");
+      }
+    });
+  }, 950);
 };
 
 const startSlider = () => {
