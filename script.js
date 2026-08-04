@@ -1,17 +1,62 @@
 const menuButton = document.getElementById("menuButton");
 const mobileMenu = document.getElementById("mobileMenu");
-const mobileLinks = [...mobileMenu.querySelectorAll("a")];
 const siteHeader = document.getElementById("siteHeader");
+
 const inquiryForm = document.getElementById("inquiryForm");
 const formStatus = document.getElementById("formStatus");
 const currentYear = document.getElementById("currentYear");
+
+const productMenuButton = document.getElementById("productMenuButton");
+const productMegaMenu = document.getElementById("productMegaMenu");
+
+const mobileProductButton = document.getElementById("mobileProductButton");
+const mobileProductMenu = document.getElementById("mobileProductMenu");
+
 const slides = [...document.querySelectorAll("[data-slide]")];
 const slideDots = [...document.querySelectorAll("[data-slide-to]")];
+
+const mobileLinks = mobileMenu
+  ? [...mobileMenu.querySelectorAll("a")]
+  : [];
+
+const mobileBreakpoint = window.matchMedia("(max-width: 960px)");
 
 let activeSlide = 0;
 let slideTimer;
 
+/* Product mega menu */
+
+const setProductMenuState = (isOpen) => {
+  if (!productMegaMenu || !productMenuButton) {
+    return;
+  }
+
+  productMegaMenu.classList.toggle("is-open", isOpen);
+  productMenuButton.classList.toggle("is-open", isOpen);
+
+  productMenuButton.setAttribute("aria-expanded", String(isOpen));
+  productMegaMenu.setAttribute("aria-hidden", String(!isOpen));
+};
+
+/* Mobile product submenu */
+
+const setMobileProductState = (isOpen) => {
+  if (!mobileProductMenu || !mobileProductButton) {
+    return;
+  }
+
+  mobileProductMenu.classList.toggle("is-open", isOpen);
+  mobileProductButton.classList.toggle("is-open", isOpen);
+  mobileProductButton.setAttribute("aria-expanded", String(isOpen));
+};
+
+/* Main mobile navigation */
+
 const setMenuState = (isOpen) => {
+  if (!mobileMenu || !menuButton) {
+    return;
+  }
+
   mobileMenu.classList.toggle("is-open", isOpen);
   menuButton.classList.toggle("is-open", isOpen);
   document.body.classList.toggle("menu-open", isOpen);
@@ -21,10 +66,18 @@ const setMenuState = (isOpen) => {
     "aria-label",
     isOpen ? "Cerrar menú" : "Abrir menú"
   );
+
+  if (!isOpen) {
+    setMobileProductState(false);
+  }
 };
 
+/* Homepage hero slider */
+
 const displaySlide = (index) => {
-  if (!slides.length) return;
+  if (!slides.length) {
+    return;
+  }
 
   const nextSlide = (index + slides.length) % slides.length;
   const previousSlide = activeSlide;
@@ -33,10 +86,7 @@ const displaySlide = (index) => {
     slide.classList.remove("is-leaving");
   });
 
-  if (
-    slides[previousSlide] &&
-    previousSlide !== nextSlide
-  ) {
+  if (slides[previousSlide] && previousSlide !== nextSlide) {
     slides[previousSlide].classList.add("is-leaving");
   }
 
@@ -53,7 +103,10 @@ const displaySlide = (index) => {
     const isCurrent = dotIndex === activeSlide;
 
     dot.classList.toggle("is-active", isCurrent);
-    dot.setAttribute("aria-current", isCurrent ? "true" : "false");
+    dot.setAttribute(
+      "aria-current",
+      isCurrent ? "true" : "false"
+    );
   });
 
   window.setTimeout(() => {
@@ -68,7 +121,15 @@ const displaySlide = (index) => {
 const startSlider = () => {
   window.clearInterval(slideTimer);
 
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if (!slides.length) {
+    return;
+  }
+
+  const reducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  );
+
+  if (reducedMotion.matches) {
     return;
   }
 
@@ -77,104 +138,211 @@ const startSlider = () => {
   }, 6500);
 };
 
-menuButton.addEventListener("click", () => {
-  const isOpen = menuButton.getAttribute("aria-expanded") === "true";
-  setMenuState(!isOpen);
-});
+/* Mobile navigation events */
+
+if (menuButton && mobileMenu) {
+  menuButton.addEventListener("click", () => {
+    const isOpen =
+      menuButton.getAttribute("aria-expanded") === "true";
+
+    setMenuState(!isOpen);
+  });
+}
+
+if (mobileProductButton && mobileProductMenu) {
+  mobileProductButton.addEventListener("click", () => {
+    const isOpen =
+      mobileProductButton.getAttribute("aria-expanded") === "true";
+
+    setMobileProductState(!isOpen);
+  });
+}
 
 mobileLinks.forEach((link) => {
-  link.addEventListener("click", () => setMenuState(false));
+  link.addEventListener("click", () => {
+    setMenuState(false);
+  });
 });
 
+/* Desktop product menu events */
+
+if (productMenuButton && productMegaMenu) {
+  productMenuButton.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const isOpen =
+      productMenuButton.getAttribute("aria-expanded") === "true";
+
+    setProductMenuState(!isOpen);
+  });
+
+  productMegaMenu.addEventListener("click", (event) => {
+    event.stopPropagation();
+  });
+
+  document.addEventListener("click", () => {
+    setProductMenuState(false);
+  });
+}
+
+/* Escape-key navigation control */
+
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && mobileMenu.classList.contains("is-open")) {
+  if (event.key !== "Escape") {
+    return;
+  }
+
+  if (
+    productMegaMenu &&
+    productMenuButton &&
+    productMegaMenu.classList.contains("is-open")
+  ) {
+    setProductMenuState(false);
+    productMenuButton.focus();
+  }
+
+  if (
+    mobileMenu &&
+    menuButton &&
+    mobileMenu.classList.contains("is-open")
+  ) {
     setMenuState(false);
     menuButton.focus();
   }
 });
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth > 1180) {
+/* Responsive navigation synchronization */
+
+const synchronizeNavigation = (event) => {
+  if (event.matches) {
+    setProductMenuState(false);
+  } else {
     setMenuState(false);
   }
-});
+};
 
-window.addEventListener(
-  "scroll",
-  () => {
-    siteHeader.classList.toggle("is-scrolled", window.scrollY > 18);
-  },
-  { passive: true }
-);
+if (typeof mobileBreakpoint.addEventListener === "function") {
+  mobileBreakpoint.addEventListener(
+    "change",
+    synchronizeNavigation
+  );
+} else {
+  mobileBreakpoint.addListener(synchronizeNavigation);
+}
+
+synchronizeNavigation(mobileBreakpoint);
+
+/* Scrolled header state */
+
+if (siteHeader) {
+  const updateHeaderState = () => {
+    siteHeader.classList.toggle(
+      "is-scrolled",
+      window.scrollY > 18
+    );
+  };
+
+  window.addEventListener("scroll", updateHeaderState, {
+    passive: true
+  });
+
+  updateHeaderState();
+}
+
+/* Slider navigation dots */
 
 slideDots.forEach((dot) => {
   dot.addEventListener("click", () => {
-    displaySlide(Number(dot.dataset.slideTo));
+    const targetSlide = Number(dot.dataset.slideTo);
+
+    if (Number.isNaN(targetSlide)) {
+      return;
+    }
+
+    displaySlide(targetSlide);
     startSlider();
   });
 });
 
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    window.clearInterval(slideTimer);
-  } else {
-    startSlider();
-  }
-});
+/* Pause slider when the browser tab is hidden */
 
-inquiryForm.addEventListener("submit", (event) => {
-  event.preventDefault();
+if (slides.length) {
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      window.clearInterval(slideTimer);
+    } else {
+      startSlider();
+    }
+  });
+}
 
-  if (!inquiryForm.checkValidity()) {
-    inquiryForm.reportValidity();
-    return;
-  }
+/* Homepage contact form */
 
-  const formData = new FormData(inquiryForm);
-  const name = formData.get("name").trim();
-  const company = formData.get("company").trim();
-  const phone = formData.get("phone").trim();
-  const email = formData.get("email").trim();
-  const profile = formData.get("profile").trim();
-  const message = formData.get("message").trim();
+if (inquiryForm && formStatus) {
+  inquiryForm.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  const inquiryLines = [
-    "Hola, equipo comercial de Alzarsi.",
-    "",
-    "Quisiera realizar la siguiente consulta:",
-    "",
-    `Nombre: ${name}`,
-    `Empresa: ${company || "No indicada"}`,
-    `Teléfono: ${phone}`,
-    `Correo: ${email}`,
-    `Tipo de consulta: ${profile}`,
-    "",
-    `Mensaje: ${message}`
-  ];
+    if (!inquiryForm.checkValidity()) {
+      inquiryForm.reportValidity();
+      return;
+    }
 
-  const whatsappUrl = `https://wa.me/59172177160?text=${encodeURIComponent(
-    inquiryLines.join("\n")
-  )}`;
+    const formData = new FormData(inquiryForm);
 
-  formStatus.textContent = "Abriendo WhatsApp para enviar tu consulta…";
+    const name = String(formData.get("name") || "").trim();
+    const company = String(formData.get("company") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const profile = String(formData.get("profile") || "").trim();
+    const message = String(formData.get("message") || "").trim();
 
-  const whatsappWindow = window.open(
-    whatsappUrl,
-    "_blank",
-    "noopener,noreferrer"
-  );
+    const inquiryLines = [
+      "Hola, equipo comercial de Alzarsi.",
+      "",
+      "Quisiera realizar la siguiente consulta:",
+      "",
+      `Nombre: ${name}`,
+      `Empresa: ${company || "No indicada"}`,
+      `Teléfono: ${phone}`,
+      `Correo: ${email}`,
+      `Tipo de consulta: ${profile}`,
+      "",
+      `Mensaje: ${message}`
+    ];
 
-  if (!whatsappWindow) {
-    window.location.href = whatsappUrl;
-  }
+    const whatsappUrl =
+      "https://wa.me/59172177160?text=" +
+      encodeURIComponent(inquiryLines.join("\n"));
 
-  window.setTimeout(() => {
     formStatus.textContent =
-      "Tu consulta está preparada. Revisa WhatsApp para enviarla.";
-  }, 700);
-});
+      "Abriendo WhatsApp para enviar tu consulta…";
 
-currentYear.textContent = new Date().getFullYear();
+    const whatsappWindow = window.open(
+      whatsappUrl,
+      "_blank",
+      "noopener,noreferrer"
+    );
 
-displaySlide(0);
-startSlider();
+    if (!whatsappWindow) {
+      window.location.href = whatsappUrl;
+    }
+
+    window.setTimeout(() => {
+      formStatus.textContent =
+        "Tu consulta está preparada. Revisa WhatsApp para enviarla.";
+    }, 700);
+  });
+}
+
+/* Automatic footer year */
+
+if (currentYear) {
+  currentYear.textContent = new Date().getFullYear();
+}
+
+/* Initialize homepage slider when present */
+
+if (slides.length) {
+  displaySlide(0);
+  startSlider();
+}

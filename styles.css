@@ -1256,6 +1256,215 @@ h3 {
   }
 }
 
+/* Productos mega-menu and definitive responsive header */
+.navigation-product-trigger {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  display: inline-flex;
+  font-family: var(--body-font);
+  gap: 8px;
+}
+
+.navigation-chevron {
+  border-bottom: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  display: inline-block;
+  height: 6px;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 220ms ease;
+  width: 6px;
+}
+
+.navigation-product-trigger.is-open .navigation-chevron,
+.mobile-product-trigger.is-open .navigation-chevron {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+.product-mega-menu {
+  background: var(--white);
+  border-bottom: 4px solid var(--alzarsi-blue);
+  box-shadow: 0 22px 45px rgba(0, 63, 107, 0.16);
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  transform: translateY(-10px);
+  transition: opacity 200ms ease, transform 240ms ease, visibility 0s linear 240ms;
+  visibility: hidden;
+}
+
+.product-mega-menu.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition: opacity 200ms ease, transform 240ms ease;
+  visibility: visible;
+}
+
+.product-mega-shell {
+  display: grid;
+  gap: clamp(34px, 4vw, 68px);
+  grid-template-columns: 1.25fr 0.8fr 1fr 0.9fr;
+  padding-bottom: 48px;
+  padding-top: 44px;
+}
+
+.product-mega-intro {
+  border-right: 1px solid var(--alzarsi-silver);
+  padding-right: clamp(28px, 3vw, 52px);
+}
+
+.product-mega-intro h2 {
+  color: var(--alzarsi-deep);
+  font-size: 28px;
+  line-height: 1.15;
+  margin: 10px 0 15px;
+}
+
+.product-mega-intro > p:not(.eyebrow) {
+  font-size: 13px;
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+
+.product-mega-intro > a {
+  color: var(--alzarsi-blue);
+  font-family: var(--heading-font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.product-mega-column {
+  align-content: start;
+  display: grid;
+  gap: 11px;
+}
+
+.product-mega-column > a:not(.product-mega-title) {
+  color: var(--alzarsi-graphite);
+  font-size: 13px;
+  padding-block: 3px;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.product-mega-column > a:not(.product-mega-title):hover,
+.product-mega-column > a:not(.product-mega-title):focus-visible {
+  color: var(--alzarsi-blue);
+  transform: translateX(3px);
+}
+
+.product-mega-title {
+  border-bottom: 2px solid var(--alzarsi-red);
+  color: var(--alzarsi-deep);
+  display: flex;
+  font-family: var(--heading-font);
+  font-size: 13px;
+  font-weight: 700;
+  justify-content: space-between;
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+  padding-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.product-mega-upcoming p {
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.upcoming-label {
+  color: var(--alzarsi-blue);
+  font-family: var(--heading-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.mobile-product-trigger {
+  align-items: center;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  width: 100%;
+}
+
+.mobile-product-menu {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 280ms ease;
+}
+
+.mobile-product-menu-inner {
+  background: rgba(0, 91, 150, 0.055);
+  display: grid;
+  gap: 24px;
+  overflow: hidden;
+  padding-inline: 22px;
+}
+
+.mobile-product-menu.is-open {
+  grid-template-rows: 1fr;
+}
+
+.mobile-product-menu.is-open .mobile-product-menu-inner {
+  padding-block: 22px 25px;
+}
+
+.mobile-product-region {
+  display: grid;
+  gap: 10px;
+}
+
+.mobile-product-region a:not(.mobile-product-title),
+.mobile-product-region span {
+  color: var(--alzarsi-graphite);
+  font-size: 13px;
+}
+
+.mobile-product-title {
+  color: var(--alzarsi-deep);
+  font-family: var(--heading-font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 961px) and (max-width: 1250px) {
+  .header-shell {
+    gap: 16px;
+  }
+
+  .brand-logo {
+    height: 62px;
+  }
+
+  .desktop-navigation {
+    gap: clamp(12px, 1.35vw, 22px);
+  }
+
+  .navigation-link {
+    font-size: 12px;
+  }
+
+  .header-contact {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 960px) {
+  .product-mega-menu {
+    display: none;
+  }
+}
+
   .menu-trigger {
     display: grid;
   }

@@ -24,9 +24,18 @@
       </a>
 
       <nav class="desktop-navigation navigation-main" aria-label="Navegación principal">
-        <a class="navigation-link" href="#empresa">Quiénes somos</a>
+        <a class="navigation-link" href="quienes-somos.html">Quiénes somos</a>
         <a class="navigation-link" href="#marcas">Nuestras marcas</a>
-        <a class="navigation-link" href="#productos">Productos</a>
+        <button
+          class="navigation-link navigation-product-trigger"
+          id="productMenuButton"
+          type="button"
+          aria-expanded="false"
+          aria-controls="productMegaMenu"
+        >
+          Productos
+          <span class="navigation-chevron" aria-hidden="true"></span>
+        </button>
         <a class="navigation-link" href="#recetas">Recetas</a>
         <a class="navigation-link" href="#novedades">Novedades</a>
         <a class="navigation-link" href="#multimedia">Multimedia</a>
@@ -52,11 +61,86 @@
       </div>
     </div>
 
+    <div class="product-mega-menu" id="productMegaMenu" aria-hidden="true">
+      <div class="product-mega-shell layout-shell">
+        <div class="product-mega-intro">
+          <p class="eyebrow">Nuestro portafolio</p>
+          <h2>Productos por región</h2>
+          <p>Explora las marcas disponibles actualmente en cada mercado.</p>
+          <a href="#productos">Ver productos destacados <span>→</span></a>
+        </div>
+
+        <section class="product-mega-column" aria-labelledby="megaLaPazTitle">
+          <a class="product-mega-title" id="megaLaPazTitle" href="https://alzarsiltda.com/la-paz/">La Paz <span>→</span></a>
+          <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+          <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+          <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+          <a href="https://alzarsiltda.com/bioplast/">BioPlast</a>
+        </section>
+
+        <section class="product-mega-column" aria-labelledby="megaSantaCruzTitle">
+          <a class="product-mega-title" id="megaSantaCruzTitle" href="https://alzarsiltda.com/santa-cruz/">Santa Cruz <span>→</span></a>
+          <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+          <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+          <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+          <a href="https://alzarsiltda.com/saborati/">Saborati</a>
+          <a href="https://alzarsiltda.com/arrozame/">Arrozame</a>
+          <a href="https://alzarsiltda.com/sanoriza/">Sanoriza</a>
+          <a href="https://alzarsiltda.com/roland-foods/">Roland Foods</a>
+        </section>
+
+        <section class="product-mega-column product-mega-upcoming" aria-labelledby="megaAutomotiveTitle">
+          <a class="product-mega-title" id="megaAutomotiveTitle" href="https://alzarsiltda.com/linea-automotriz/">Línea Automotriz <span>→</span></a>
+          <span class="upcoming-label">Próximamente</span>
+          <p>Estamos preparando esta nueva línea de productos.</p>
+        </section>
+      </div>
+    </div>
+
     <nav class="mobile-navigation" id="mobileMenu" aria-label="Navegación móvil">
       <div class="mobile-navigation-inner layout-shell">
         <a class="mobile-navigation-link" href="#empresa">Quiénes somos</a>
         <a class="mobile-navigation-link" href="#marcas">Nuestras marcas</a>
-        <a class="mobile-navigation-link" href="#productos">Productos</a>
+        <div class="mobile-product-group">
+          <button
+            class="mobile-navigation-link mobile-product-trigger"
+            id="mobileProductButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileProductMenu"
+          >
+            Productos
+            <span class="navigation-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="mobile-product-menu" id="mobileProductMenu">
+            <div class="mobile-product-menu-inner">
+              <div class="mobile-product-region">
+                <a class="mobile-product-title" href="https://alzarsiltda.com/la-paz/">La Paz</a>
+                <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+                <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+                <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+                <a href="https://alzarsiltda.com/bioplast/">BioPlast</a>
+              </div>
+
+              <div class="mobile-product-region">
+                <a class="mobile-product-title" href="https://alzarsiltda.com/santa-cruz/">Santa Cruz</a>
+                <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+                <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+                <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+                <a href="https://alzarsiltda.com/saborati/">Saborati</a>
+                <a href="https://alzarsiltda.com/arrozame/">Arrozame</a>
+                <a href="https://alzarsiltda.com/sanoriza/">Sanoriza</a>
+                <a href="https://alzarsiltda.com/roland-foods/">Roland Foods</a>
+              </div>
+
+              <div class="mobile-product-region">
+                <a class="mobile-product-title" href="https://alzarsiltda.com/linea-automotriz/">Línea Automotriz</a>
+                <span>Próximamente</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <a class="mobile-navigation-link" href="#recetas">Recetas</a>
         <a class="mobile-navigation-link" href="#novedades">Novedades</a>
         <a class="mobile-navigation-link" href="#multimedia">Multimedia</a>
@@ -138,36 +222,101 @@
         </div>
 
         <div class="brand-grid">
-          <a class="brand-cell offset-small" href="#">
-            <span class="brand-name">Lee Kum Kee</span>
-            <span class="brand-action">Conocer marca</span>
-          </a>
+  <a class="offset-small brand-cell" href="https://alzarsiltda.com/lee-kum-kee/">
+    <img
+      class="brand-logo-image logo-lee-kum-kee"
+      src="https://i.postimg.cc/sfKcmPcM/lee-kum-keeb.png"
+      alt="Lee Kum Kee"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
 
-          <a class="brand-cell" href="#">
-            <span class="brand-name brand-red">KIKKO</span>
-            <span class="brand-action">Conocer marca</span>
-          </a>
+  <a class="brand-cell" href="https://alzarsiltda.com/kikko/">
+    <img
+      class="brand-logo-image logo-kikko"
+      src="https://i.postimg.cc/NFNk0YMJ/kikko.png"
+      alt="Kikko"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
 
-          <a class="brand-cell offset-medium" href="#">
-            <span class="brand-name brand-blue">SANORIZA</span>
-            <span class="brand-action">Conocer marca</span>
-          </a>
+  <a class="offset-medium brand-cell" href="https://alzarsiltda.com/sanoriza/">
+    <img
+      class="brand-logo-image logo-sanoryza"
+      src="https://i.postimg.cc/v8Xzh7zW/sanoryza.png"
+      alt="Sanoryza"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
 
-          <a class="brand-cell" href="#">
-            <span class="brand-name">EL CAZADOR</span>
-            <span class="brand-action">Conocer marca</span>
-          </a>
+  <a class="brand-cell brand-cell-dark" href="https://alzarsiltda.com/el-cazador/">
+    <img
+      class="brand-logo-image logo-el-cazador"
+      src="https://i.postimg.cc/BbhBvsb4/el-cazador.png"
+      alt="El Cazador"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
 
-          <a class="brand-cell offset-small" href="#">
-            <span class="brand-name brand-red">ARROZAME</span>
-            <span class="brand-action">Conocer marca</span>
-          </a>
+  <a class="offset-small brand-cell" href="https://alzarsiltda.com/arrozame/">
+    <img
+      class="brand-logo-image logo-arrozame"
+      src="https://i.postimg.cc/pr0JdxTw/arrozame.png"
+      alt="Arrozame"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
 
-          <a class="brand-cell" href="#">
-            <span class="brand-name brand-blue">BIOPLAST</span>
-            <span class="brand-action">Conocer marca</span>
-          </a>
-        </div>
+  <a class="brand-cell" href="https://alzarsiltda.com/bioplast/">
+    <img
+      class="brand-logo-image logo-bioplast"
+      src="https://i.postimg.cc/rs8CNs3K/bioplast-verde.png"
+      alt="Bioplast"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
+
+  <a class="brand-cell" href="https://alzarsiltda.com/saborati/">
+    <img
+      class="brand-logo-image logo-saborati"
+      src="https://i.postimg.cc/6q0cknnz/saborati-2.png"
+      alt="Saborati"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
+
+  <a class="offset-medium brand-cell" href="https://alzarsiltda.com/roland-foods/">
+    <img
+      class="brand-logo-image logo-roland"
+      src="https://i.postimg.cc/7PXV91V0/roland-foods-goldem.png"
+      alt="Roland Foods"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
+
+  <a class="offset-small brand-cell" href="https://alzarsiltda.com/te-chapare/">
+    <img
+      class="brand-logo-image logo-te-chapare"
+      src="https://i.postimg.cc/1RMHB0Hc/te-chapare.png"
+      alt="Té Chapare"
+      loading="lazy"
+    >
+    <span class="brand-action">Conocer marca</span>
+  </a>
+</div>
+<div class="brands-footer">
+  <a class="button-outline brands-all-button" href="https://alzarsiltda.com/productos/">
+    Ver todas las marcas
+  </a>
+</div>
       </div>
     </section>
 
@@ -201,7 +350,7 @@
               acercar productos confiables a comercios y familias de todo el país.
             </p>
 
-            <a class="button-outline" href="#">Conocer nuestra historia <span>→</span></a>
+            <a class="button-outline" href="quienes-somos.html">Conocer nuestra historia <span>→</span></a>
           </div>
         </div>
       </div>
@@ -223,7 +372,7 @@
             <div class="product-image product-notch">
               <span class="product-category">Salsas y condimentos</span>
               <img
-                src="https://images.unsplash.com/photo-1612257999756-2d5b4eb2f8ab?auto=format&fit=crop&w=800&q=86"
+                src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1200&q=86"
                 alt="Selección de salsas y condimentos"
               >
             </div>
@@ -549,7 +698,7 @@
   <footer class="site-footer">
     <div class="footer-main layout-shell">
       <div class="footer-brand">
-        <img src="assets/Alzarsi-logo-white.png" alt="Alzarsi Ltda.">
+        <img src="assets/alzarsi-logo.png" alt="Alzarsi Ltda.">
         <p>
           Conectando marcas, mercados y familias desde 2008.
         </p>
