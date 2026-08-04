@@ -9,7 +9,124 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260804b">
+  <style>
+    /* Embedded page layout: intentionally independent of quienes-somos.css. */
+    .about-page main { overflow: hidden; }
+    .about-page .navigation-link-active { color: var(--alzarsi-blue); }
+    .about-hero h1, .about-editorial h2, .about-statement h2,
+    .about-contact-bar h2 { font-family: "Montserrat", sans-serif; font-weight: 700; }
+    .about-hero {
+      color: #fff; height: clamp(390px, 38vw, 540px);
+      margin-top: var(--header-height, 92px); overflow: hidden; position: relative;
+    }
+    .about-hero-image, .about-editorial-figure img, .about-statement-figure img {
+      display: block; height: 100%; max-width: none; object-fit: cover; width: 100%;
+    }
+    .about-hero-image { object-position: center 50%; }
+    .about-hero-shade {
+      background: linear-gradient(90deg, rgba(12,26,37,.75), rgba(12,26,37,.34) 52%, rgba(12,26,37,.08));
+      inset: 0; position: absolute;
+    }
+    .about-hero-content {
+      bottom: 0; left: 50%; padding-bottom: clamp(42px, 5vw, 70px);
+      position: absolute; transform: translateX(-50%); width: 100%;
+    }
+    .about-breadcrumb { font-size: 13px; font-weight: 600; margin: 0 0 22px; }
+    .about-breadcrumb a { border-bottom: 1px solid rgba(255,255,255,.55); }
+    .about-hero h1 {
+      font-size: clamp(48px, 6vw, 82px); letter-spacing: -.045em;
+      line-height: .96; margin: 0 0 18px; text-transform: uppercase;
+    }
+    .about-hero-content > p:last-child {
+      font-family: "Inter", sans-serif; font-size: clamp(16px, 1.4vw, 20px);
+      font-weight: 500; margin: 0; max-width: 620px;
+    }
+    .about-opening { background: #fff; }
+    .about-opening-inner {
+      display: grid; gap: clamp(34px, 7vw, 110px);
+      grid-template-columns: minmax(220px,.62fr) minmax(0,1.38fr);
+      padding-bottom: clamp(70px,8vw,112px); padding-top: clamp(70px,8vw,112px);
+    }
+    .about-opening h2 {
+      color: #003f6b; font-family: "Montserrat", sans-serif; font-size: clamp(34px,4vw,58px);
+      font-weight: 700; letter-spacing: -.04em; line-height: 1.04; margin: 0;
+    }
+    .about-opening p {
+      color: #30343b; font-size: clamp(18px,1.55vw,23px); line-height: 1.62;
+      margin: 0; max-width: 830px;
+    }
+    .about-editorial, .about-statement { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
+    .about-editorial-dark { background: #30343b; color: #fff; }
+    .about-editorial-figure, .about-statement-figure {
+      aspect-ratio: 1.16 / 1; margin: 0; min-width: 0; overflow: hidden;
+    }
+    .about-editorial-copy, .about-statement-copy {
+      align-items: flex-start; display: flex; flex-direction: column; justify-content: center;
+      min-width: 0; padding: clamp(65px,8vw,135px);
+    }
+    .about-editorial h2, .about-statement h2 {
+      font-size: clamp(39px,4.3vw,68px); letter-spacing: -.045em; line-height: 1.03;
+      margin: 0 0 32px; text-transform: uppercase;
+    }
+    .about-editorial p, .about-statement p {
+      font-size: clamp(16px,1.3vw,20px); line-height: 1.75; margin: 0; max-width: 680px;
+    }
+    .about-editorial p { color: rgba(255,255,255,.82); }
+    .about-text-link {
+      border: 1px solid #e30613; color: #fff; font-size: 13px; font-weight: 700;
+      margin-top: 42px; padding: 18px 24px; text-transform: uppercase;
+    }
+    .about-text-link:hover, .about-text-link:focus-visible { background: #e30613; }
+    .about-statement { background: #f7f5f0; }
+    .about-statement-copy h2 { color: #003f6b; }
+    .about-statement-blue { background: #003f6b; color: #fff; }
+    .about-statement-blue h2 { color: #fff; }
+    .about-statement-blue p { color: rgba(255,255,255,.84); }
+    .about-contact-bar { background: #f7f5f0; border-bottom: 1px solid #c9cdd2; padding: 44px 0; }
+    .about-contact-bar-inner {
+      align-items: center; display: grid; gap: 30px;
+      grid-template-columns: 1.15fr .8fr .9fr 1.25fr;
+    }
+    .about-contact-intro { padding-right: 25px; }
+    .about-contact-bar h2 { color: #003f6b; font-size: 29px; letter-spacing: -.03em; margin: 0 0 7px; }
+    .about-contact-intro p { font-size: 13px; line-height: 1.5; margin: 0; }
+    .about-contact-bar-inner > a {
+      border-left: 1px solid #c9cdd2; font-size: 14px; font-weight: 600;
+      min-height: 52px; overflow-wrap: anywhere; padding-left: 27px;
+    }
+    .about-contact-bar-inner > a span {
+      color: #005b96; display: block; font-family: "Montserrat", sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: .1em; margin-bottom: 9px; text-transform: uppercase;
+    }
+    @media (max-width:1050px) {
+      .about-opening-inner { gap: 50px; grid-template-columns: .7fr 1.3fr; }
+      .about-editorial-copy, .about-statement-copy { padding: 70px 7vw; }
+      .about-contact-bar-inner { grid-template-columns: 1fr 1fr; }
+      .about-contact-bar-inner > a:nth-of-type(2) { border-left: 0; }
+    }
+    @media (max-width:820px) {
+      .about-hero { height: 470px; }
+      .about-opening-inner { grid-template-columns: 1fr; }
+      .about-editorial, .about-statement { grid-template-columns: 1fr; }
+      .about-editorial-figure, .about-statement-figure { aspect-ratio: 4 / 3; }
+      .about-statement-reverse .about-statement-copy { grid-row: 1; }
+    }
+    @media (max-width:560px) {
+      .about-hero { height: 390px; margin-top: var(--header-height,68px); }
+      .about-hero-content { padding-bottom: 38px; }
+      .about-breadcrumb { margin-bottom: 25px; }
+      .about-hero h1 { font-size: 45px; }
+      .about-opening-inner { gap: 38px; padding-bottom: 64px; padding-top: 64px; }
+      .about-opening p { font-size: 18px; }
+      .about-editorial-copy, .about-statement-copy { padding: 58px 23px 64px; }
+      .about-editorial h2, .about-statement h2 { font-size: 37px; }
+      .about-contact-bar-inner { grid-template-columns: 1fr; }
+      .about-contact-bar-inner > a, .about-contact-bar-inner > a:nth-of-type(2) {
+        border-left: 0; border-top: 1px solid #c9cdd2; padding-left: 0; padding-top: 22px;
+      }
+    }
+  </style>
   <script src="script.js" defer></script>
 </head>
 
@@ -29,10 +146,10 @@
         <a class="navigation-link" href="index.html#recetas">Recetas</a>
         <a class="navigation-link" href="index.html#novedades">Novedades</a>
         <a class="navigation-link" href="index.html#multimedia">Multimedia</a>
+        <a class="navigation-link" href="#contacto">Contacto</a>
       </nav>
 
       <div class="header-actions">
-        <a class="button-contact header-contact" href="#contacto">Contacto</a>
         <button class="menu-trigger" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
           <span class="menu-lines" aria-hidden="true"><span></span><span></span><span></span></span>
         </button>
@@ -108,83 +225,57 @@
         <a class="mobile-navigation-link" href="index.html#recetas">Recetas</a>
         <a class="mobile-navigation-link" href="index.html#novedades">Novedades</a>
         <a class="mobile-navigation-link" href="index.html#multimedia">Multimedia</a>
-        <a class="mobile-navigation-contact" href="#contacto">Contactar a Alzarsi</a>
+        <a class="mobile-navigation-link" href="#contacto">Contacto</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <section class="about-intro">
-      <div class="about-intro-copy">
-        <img class="about-intro-logo" src="assets/alzarsi-logo.png" alt="Alzarsi Ltda.">
+    <section class="about-hero">
+      <img class="about-hero-image" src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=2000&q=90" alt="Productos exhibidos en un comercio de alimentos">
+      <div class="about-hero-shade" aria-hidden="true"></div>
+      <div class="about-hero-content layout-shell">
+        <p class="about-breadcrumb"><a href="index.html">Inicio</a> / Quiénes somos</p>
         <h1>Nuestra trayectoria</h1>
-        <p class="about-intro-lead">Una empresa familiar boliviana que conecta marcas, mercados y familias desde 2008.</p>
-        <p>Importamos, comercializamos y distribuimos productos para el mercado nacional. Nuestra experiencia combina conocimiento local, relaciones comerciales de largo plazo y una operación preparada para atender comercios, supermercados, distribuidores y clientes del canal Horeca.</p>
-      </div>
-
-      <div class="about-intro-gallery" aria-label="Alzarsi en el mercado boliviano">
-        <figure class="about-photo about-photo-main">
-          <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=90" alt="Cliente seleccionando productos en un supermercado">
-        </figure>
-        <figure class="about-photo about-photo-small">
-          <img src="https://images.unsplash.com/photo-1556740758-90de374c12ad?auto=format&fit=crop&w=850&q=90" alt="Atención cercana entre un comercio y su cliente">
-        </figure>
-        <p class="about-since">Desde 2008<br><span>Bolivia</span></p>
+        <p>Marcas y productos para hogares, comercios y negocios de Bolivia.</p>
       </div>
     </section>
 
-    <section class="about-purpose">
-      <div class="about-purpose-image">
-        <img src="https://images.unsplash.com/photo-1601599561213-832382fd07ba?auto=format&fit=crop&w=1500&q=90" alt="Equipo preparando productos para su distribución">
-      </div>
-      <div class="about-purpose-copy">
-        <article>
-          <h2>Misión</h2>
-          <p>Contribuir al crecimiento económico del país abasteciendo una oferta diversa de productos nacionales e importados, construyendo relaciones duraderas con nuestros clientes y actuando como un proveedor confiable.</p>
-        </article>
-        <article>
-          <h2>Visión</h2>
-          <p>Consolidarnos como un importador y distribuidor líder, ampliando nuestro portafolio con responsabilidad y ofreciendo una atención eficiente, cercana y consistente.</p>
-        </article>
+    <section class="about-opening">
+      <div class="about-opening-inner layout-shell">
+        <h2>Una empresa boliviana con alcance nacional</h2>
+        <p>Alzarsi Ltda. se dedica a la importación, comercialización y distribución de productos comestibles, artículos de bazar y repuestos automotrices. Atendemos al comercio minorista, supermercados y negocios del sector gastronómico y hotelero, conectando marcas con clientes en el mercado boliviano.</p>
       </div>
     </section>
 
-    <section class="about-values" aria-labelledby="valuesTitle">
-      <div class="layout-shell about-values-heading">
-        <h2 id="valuesTitle">Lo que sostiene nuestro trabajo</h2>
-        <p>Nuestros valores se expresan en la forma en que seleccionamos marcas, cumplimos cada entrega y cuidamos las relaciones construidas con el tiempo.</p>
-      </div>
-
-      <div class="about-values-story">
-        <div class="about-values-photo">
-          <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=90" alt="Socios comerciales trabajando juntos">
-        </div>
-        <div class="about-values-list">
-          <article>
-            <h3>Compromiso integral</h3>
-            <p>Trabajamos con constancia para responder a nuestros clientes y mantener una distribución eficiente en cada mercado que atendemos.</p>
-          </article>
-          <article>
-            <h3>Calidad respaldada</h3>
-            <p>Representamos marcas y productos seleccionados por su trayectoria, consistencia y capacidad de generar valor real.</p>
-          </article>
-          <article>
-            <h3>Confianza duradera</h3>
-            <p>Construimos relaciones comerciales transparentes, sostenibles y orientadas al largo plazo.</p>
-          </article>
-        </div>
+    <section class="about-editorial about-editorial-dark">
+      <figure class="about-editorial-figure">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=90" alt="Atención comercial profesional en un punto de venta">
+      </figure>
+      <div class="about-editorial-copy">
+        <h2>Distribución nacional</h2>
+        <p>Nuestra operación atiende comercios, supermercados, distribuidores, restaurantes, hoteles y otros clientes profesionales. Trabajamos para que cada producto llegue al mercado con una gestión comercial responsable y en cumplimiento de la normativa boliviana.</p>
+        <a class="about-text-link" href="index.html#marcas">Conocer nuestras marcas</a>
       </div>
     </section>
 
-    <section class="about-family">
-      <div class="about-family-image">
-        <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1500&q=90" alt="Productos presentes en la vida diaria de las familias">
+    <section class="about-statement">
+      <div class="about-statement-copy">
+        <h2>Misión</h2>
+        <p>Contribuir al crecimiento económico del país abasteciendo una oferta diversa de productos nacionales e importados, construyendo relaciones duraderas con nuestros clientes y actuando como un proveedor confiable.</p>
       </div>
-      <div class="about-family-copy">
-        <img src="assets/alzarsi-logo.png" alt="Alzarsi Ltda.">
-        <h2>Presencia internacional, compromiso local.</h2>
-        <p>Acercamos productos confiables a la vida cotidiana de las familias bolivianas y acompañamos el crecimiento de los negocios que los ponen a su alcance.</p>
-        <a class="button-primary" href="index.html#marcas">Conocer nuestras marcas</a>
+      <figure class="about-statement-figure">
+        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=90" alt="Selección diversa de alimentos para el mercado boliviano">
+      </figure>
+    </section>
+
+    <section class="about-statement about-statement-reverse">
+      <figure class="about-statement-figure">
+        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=90" alt="Equipo profesional reunido para planificar el crecimiento comercial">
+      </figure>
+      <div class="about-statement-copy about-statement-blue">
+        <h2>Visión</h2>
+        <p>Consolidarnos como un importador y distribuidor líder, ampliando nuestro portafolio con responsabilidad y ofreciendo una atención eficiente, cercana y consistente.</p>
       </div>
     </section>
 
