@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Recetas y videos de cocina con productos distribuidos por Alzarsi Ltda. en Bolivia."
+    />
+    <meta name="theme-color" content="#003F6B" />
+
+    <title>Recetas | Alzarsi Ltda.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="recetas.css" />
+    <script src="script.js" defer></script>
+    <script src="recetas.js" defer></script>
+  </head>
+
+  <body id="top" class="recipes-page">
+    <header class="site-header surface-header" id="siteHeader">
+      <div class="header-shell layout-shell">
+        <a
+          class="brand-link header-brand"
+          href="index.html"
+          aria-label="Ir al inicio"
+        >
+          <img
+            class="brand-logo"
+            src="assets/alzarsi-logo.png"
+            alt="Alzarsi Ltda."
+          />
+        </a>
+
+        <nav
+          class="desktop-navigation navigation-main"
+          aria-label="Navegación principal"
+        >
+          <a class="navigation-link" href="quienes-somos.html">Quiénes somos</a>
+          <a class="navigation-link" href="index.html#marcas"
+            >Nuestras marcas</a
+          >
+          <a class="navigation-link" href="index.html#productos">Productos</a>
+          <a
+            class="navigation-link is-current"
+            href="recetas.html"
+            aria-current="page"
+            >Recetas</a
+          >
+          <a class="navigation-link" href="eventos.html">Novedades</a>
+          <a class="navigation-link" href="media.html">Multimedia</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button-contact header-contact" href="#contacto">Contacto</a>
+          <button
+            class="menu-trigger"
+            id="menuButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Abrir menú"
+          >
+            <span class="menu-lines" aria-hidden="true"
+              ><span></span><span></span><span></span
+            ></span>
+          </button>
+        </div>
+      </div>
+
+      <nav
+        class="mobile-navigation"
+        id="mobileMenu"
+        aria-label="Navegación móvil"
+      >
+        <div class="mobile-navigation-inner layout-shell">
+          <a class="mobile-navigation-link" href="quienes-somos.html"
+            >Quiénes somos</a
+          >
+          <a class="mobile-navigation-link" href="index.html#marcas"
+            >Nuestras marcas</a
+          >
+          <a class="mobile-navigation-link" href="index.html#productos"
+            >Productos</a
+          >
+          <a
+            class="mobile-navigation-link"
+            href="recetas.html"
+            aria-current="page"
+            >Recetas</a
+          >
+          <a class="mobile-navigation-link" href="eventos.html"
+            >Novedades</a
+          >
+          <a class="mobile-navigation-link" href="media.html"
+            >Multimedia</a
+          >
+          <a class="mobile-navigation-contact" href="#contacto"
+            >Contactar a Alzarsi</a
+          >
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="recipes-hero" aria-labelledby="recipesTitle">
+        <div class="recipes-hero__shade" aria-hidden="true"></div>
+        <div class="recipes-hero__content layout-shell">
+          <p class="recipes-breadcrumb">
+            <a href="index.html">Inicio</a> / Recetas
+          </p>
+          <h1 id="recipesTitle">Recetas</h1>
+          <p>
+            Ideas para cocinar con los sabores que forman parte de nuestro
+            portafolio.
+          </p>
+        </div>
+      </section>
+
+      <div class="content-switcher" aria-label="Contenido de cocina">
+        <div
+          class="layout-shell content-switcher__inner"
+          role="tablist"
+          aria-label="Ver recetas o videos"
+        >
+          <button
+            class="content-tab is-active"
+            id="recipesTab"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="recipesPanel"
+            data-panel="recipesPanel"
+          >
+            Recetas
+          </button>
+          <button
+            class="content-tab"
+            id="videosTab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="videosPanel"
+            data-panel="videosPanel"
+          >
+            Videos
+          </button>
+        </div>
+      </div>
+
+      <section
+        class="content-panel is-active"
+        id="recipesPanel"
+        role="tabpanel"
+        aria-labelledby="recipesTab"
+      >
+        <div class="layout-shell recipes-intro">
+          <div>
+            <h2>Para llevar a la mesa</h2>
+          </div>
+          <p>
+            Preparaciones publicadas por Alzarsi con productos Lee Kum Kee,
+            presentadas en una colección clara y práctica.
+          </p>
+        </div>
+
+        <div class="recipe-filter layout-shell" aria-label="Filtrar recetas">
+          <button
+            class="filter-button is-active"
+            type="button"
+            data-filter="all"
+            aria-pressed="true"
+          >
+            Todas
+          </button>
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="mariscos"
+            aria-pressed="false"
+          >
+            Mariscos
+          </button>
+          <button
+            class="filter-button"
+            type="button"
+            data-filter="carnes"
+            aria-pressed="false"
+          >
+            Carnes
+          </button>
+        </div>
+
+        <div class="recipe-grid layout-shell" id="recipeGrid">
+          <article
+            class="recipe-card recipe-card--feature"
+            data-category="mariscos"
+          >
+            <a
+              class="recipe-card__image-link"
+              href="https://alzarsiltda.com/2024/04/08/camarones-con-salsa-picante-de-ajos/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                class="recipe-card__image"
+                src="https://images.unsplash.com/photo-1762631882900-e3174bada2ed?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Camarones preparados con ajo y salsa picante"
+                loading="eager"
+              />
+            </a>
+            <div class="recipe-card__body">
+              <p class="recipe-card__category">Mariscos</p>
+              <h3>
+                <a
+                  href="https://alzarsiltda.com/2024/04/08/camarones-con-salsa-picante-de-ajos/"
+                  target="_blank"
+                  rel="noopener"
+                  >Camarones con salsa picante de ajos</a
+                >
+              </h3>
+              <p class="recipe-card__summary">
+                Camarones salteados con ajo, ají triturado, cilantro y Salsa
+                Picante de Ajos Lee Kum Kee.
+              </p>
+              <a
+                class="recipe-card__action"
+                href="https://alzarsiltda.com/2024/04/08/camarones-con-salsa-picante-de-ajos/"
+                target="_blank"
+                rel="noopener"
+                >Ver preparación <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+
+          <article class="recipe-card" data-category="carnes">
+            <a
+              class="recipe-card__image-link"
+              href="https://alzarsiltda.com/2024/05/04/brazuelo-de-cordero-braseado-con-hierbas/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                class="recipe-card__image"
+                src="https://images.unsplash.com/photo-1558030089-02acba3c214e?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Brazuelo de cordero braseado servido con hierbas"
+                loading="lazy"
+              />
+            </a>
+            <div class="recipe-card__body">
+              <p class="recipe-card__category">Carnes</p>
+              <h3>
+                <a
+                  href="https://alzarsiltda.com/2024/05/04/brazuelo-de-cordero-braseado-con-hierbas/"
+                  target="_blank"
+                  rel="noopener"
+                  >Brazuelo de cordero braseado con hierbas</a
+                >
+              </h3>
+              <p class="recipe-card__summary">
+                Cordero cocido lentamente con vino tinto, frutas deshidratadas y
+                salsas Lee Kum Kee.
+              </p>
+              <a
+                class="recipe-card__action"
+                href="https://alzarsiltda.com/2024/05/04/brazuelo-de-cordero-braseado-con-hierbas/"
+                target="_blank"
+                rel="noopener"
+                >Ver preparación <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+
+          <article class="recipe-card" data-category="carnes">
+            <a
+              class="recipe-card__image-link"
+              href="https://alzarsiltda.com/2024/04/20/brocoli-con-carne-de-res-y-salsa-de-ostion/"
+              target="_blank"
+              rel="noopener"
+            >
+              <img
+                class="recipe-card__image"
+                src="https://images.unsplash.com/photo-1601226809816-b8c32440158a?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3Ds"
+                alt="Carne de res salteada con brócoli y salsa"
+                loading="lazy"
+              />
+            </a>
+            <div class="recipe-card__body">
+              <p class="recipe-card__category">Carnes</p>
+              <h3>
+                <a
+                  href="https://alzarsiltda.com/2024/04/20/brocoli-con-carne-de-res-y-salsa-de-ostion/"
+                  target="_blank"
+                  rel="noopener"
+                  >Brócoli con carne de res y salsa de ostión</a
+                >
+              </h3>
+              <p class="recipe-card__summary">
+                Carne de res, brócoli y zanahoria salteados con Salsa con Sabor
+                a Ostión Prémium Lee Kum Kee.
+              </p>
+              <a
+                class="recipe-card__action"
+                href="https://alzarsiltda.com/2024/04/20/brocoli-con-carne-de-res-y-salsa-de-ostion/"
+                target="_blank"
+                rel="noopener"
+                >Ver preparación <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+        </div>
+
+        <p
+          class="filter-status layout-shell"
+          id="filterStatus"
+          aria-live="polite"
+        ></p>
+      </section>
+
+      <section
+        class="content-panel videos-panel"
+        id="videosPanel"
+        role="tabpanel"
+        aria-labelledby="videosTab"
+        hidden
+      >
+        <div class="layout-shell videos-intro">
+          <h2>Cocina en video</h2>
+          <p>
+            Dos preparaciones publicadas por Alzarsi, disponibles para
+            reproducir sin salir de la página.
+          </p>
+        </div>
+
+        <div class="video-list layout-shell">
+          <article class="video-feature">
+            <div class="video-feature__player">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="https://videos.files.wordpress.com/dEUaHhv5/robalo-con-caldo-de-soya-1_mp4_hd_1080p.original.jpg"
+                aria-label="Róbalo en caldo de soya"
+              >
+                <source
+                  src="https://videos.files.wordpress.com/dEUaHhv5/robalo-con-caldo-de-soya-1_mp4_hd.mp4"
+                  type="video/mp4"
+                />
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
+            <div class="video-feature__copy">
+              <h3>Róbalo en caldo de soya</h3>
+              <p>
+                Una preparación de pescado en caldo de soya, presentada paso a
+                paso.
+              </p>
+            </div>
+          </article>
+
+          <article class="video-feature video-feature--reverse">
+            <div class="video-feature__player">
+              <video
+                controls
+                playsinline
+                preload="metadata"
+                poster="https://videos.files.wordpress.com/bQh5gmbE/receta-papas-rellenas-1_mp4_hd_1080p.original.jpg"
+                aria-label="Papas rellenas"
+              >
+                <source
+                  src="https://videos.files.wordpress.com/bQh5gmbE/receta-papas-rellenas-1_mp4_hd.mp4"
+                  type="video/mp4"
+                />
+                Tu navegador no puede reproducir este video.
+              </video>
+            </div>
+            <div class="video-feature__copy">
+              <h3>Papas rellenas</h3>
+              <p>
+                Papas rellenas con carne, Salsa de Soya Oscura de Champiñones y
+                Salsa de Soya Prémium Lee Kum Kee.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="recipes-closing" aria-label="Consulta comercial">
+        <div class="layout-shell recipes-closing__grid">
+          <div
+            class="recipes-closing__image"
+            role="img"
+            aria-label="Mesa servida con distintos platos"
+          ></div>
+          <div class="recipes-closing__copy">
+            <h2>Productos para cocinas profesionales y hogares.</h2>
+            <p>
+              Consulta disponibilidad, formatos y atención comercial para tu
+              negocio.
+            </p>
+            <a href="#contactBarTitle"
+              >Hablar con nuestro equipo <span aria-hidden="true">→</span></a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="alz-contact"
+        id="contacto"
+        aria-labelledby="alz-contact-title"
+      >
+        <div class="alz-contact__container">
+          <div class="alz-contact__content">
+            <h2 class="alz-contact__title" id="alz-contact-title">
+              Estamos para ayudarte
+            </h2>
+
+            <p class="alz-contact__intro">
+              Si necesitas información sobre nuestros productos, marcas o
+              distribución, comunícate directamente con nuestro equipo.
+              Cuéntanos qué necesitas y te orientaremos a través del canal más
+              conveniente.
+            </p>
+
+            <div
+              class="alz-contact__quick-actions"
+              aria-label="Opciones de contacto rápido"
+            >
+              <a
+                class="alz-contact__action alz-contact__action--primary"
+                href="https://wa.me/59172177160"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <small>Respuesta directa</small>
+                  Escribir por WhatsApp
+                </span>
+              </a>
+
+              <a
+                class="alz-contact__action alz-contact__action--secondary"
+                href="tel:+59133494777"
+              >
+                <span>
+                  <small>Atención telefónica</small>
+                  +591 3 349 4777
+                </span>
+              </a>
+            </div>
+
+            <div class="alz-contact__email-panel">
+              <button
+                class="alz-contact__email-toggle"
+                id="alz-email-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="alz-email-content"
+              >
+                <span class="alz-contact__email-toggle-label">
+                  Enviar una consulta por correo
+                </span>
+
+                <span class="alz-contact__chevron" aria-hidden="true">⌄</span>
+              </button>
+
+              <div
+                class="alz-contact__email-content"
+                id="alz-email-content"
+                aria-hidden="true"
+              >
+                <form class="alz-contact__form" id="alz-contact-form">
+                  <div class="alz-contact__field-row">
+                    <div class="alz-contact__field">
+                      <label for="alz-contact-name">Nombre y apellido</label>
+                      <input
+                        id="alz-contact-name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                      />
+                    </div>
+
+                    <div class="alz-contact__field">
+                      <label for="alz-contact-phone">Teléfono</label>
+                      <input
+                        id="alz-contact-phone"
+                        name="phone"
+                        type="tel"
+                        autocomplete="tel"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-email">Correo electrónico</label>
+                    <input
+                      id="alz-contact-email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-subject"
+                      >Motivo de la consulta</label
+                    >
+
+                    <select id="alz-contact-subject" name="subject" required>
+                      <option value="">Selecciona una opción</option>
+                      <option>Información sobre productos</option>
+                      <option>Distribución y ventas</option>
+                      <option>Marcas y proveedores</option>
+                      <option>Atención al cliente</option>
+                      <option>Otra consulta</option>
+                    </select>
+                  </div>
+
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-message">Mensaje</label>
+                    <textarea
+                      id="alz-contact-message"
+                      name="message"
+                      rows="5"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="alz-contact__form-footer">
+                    <p class="alz-contact__form-note">
+                      Los campos son obligatorios.
+                    </p>
+
+                    <button class="alz-contact__submit" type="submit">
+                      Preparar correo →
+                    </button>
+                  </div>
+
+                  <p
+                    class="alz-contact__status"
+                    id="alz-contact-status"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
+                </form>
+              </div>
+            </div>
+
+            <address class="alz-contact__details">
+              <a href="mailto:comercial@alzarsiltda.com">
+                comercial@alzarsiltda.com
+              </a>
+
+              <span aria-hidden="true"></span>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Luis+Saavedra+Suarez+9335+Santa+Cruz+Bolivia"
+                target="_blank"
+                rel="noopener"
+              >
+                Santa Cruz de la Sierra, Bolivia
+              </a>
+            </address>
+          </div>
+
+          <div class="alz-contact__visual" aria-hidden="true">
+            <div class="alz-contact__visual-heading">
+              <span>Alzarsi Ltda.</span>
+              <p>Conectando marcas, productos y personas.</p>
+            </div>
+
+            <svg
+              class="alz-contact__illustration"
+              viewBox="0 0 620 620"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="alz-contact__shape--light"
+                d="M65 130C160 24 354 4 500 84c119 65 150 222 75 342-78 125-246 173-379 105C55 459-10 307 32 191c8-23 19-43 33-61Z"
+              />
+
+              <path
+                class="alz-contact__shape--blue"
+                d="M359 81c103 12 187 88 199 190 11 94-42 184-126 225-67 33-144 31-207 1 73-14 135-65 163-136 36-91 14-198-54-270 8-4 16-7 25-10Z"
+              />
+
+              <circle
+                class="alz-contact__accent-circle"
+                cx="90"
+                cy="455"
+                r="28"
+              />
+
+              <path
+                class="alz-contact__line"
+                d="M276 405h270M490 407v128M325 407v128M286 537h242"
+              />
+
+              <rect
+                class="alz-contact__screen"
+                x="372"
+                y="270"
+                width="145"
+                height="104"
+                rx="7"
+              />
+
+              <circle class="alz-contact__skin" cx="225" cy="208" r="43" />
+
+              <path
+                class="alz-contact__hair"
+                d="M184 207c-4-45 25-75 66-69 27 4 41 24 37 50-19-1-37-9-50-23-7 23-24 37-53 42Z"
+              />
+
+              <path
+                class="alz-contact__shirt"
+                d="M170 291c15-33 43-49 77-42 37 8 56 39 59 84l5 74H145l9-73c2-18 7-33 16-43Z"
+              />
+
+              <path
+                class="alz-contact__skin"
+                d="m258 286 73 62 67-27 13 23-88 45-84-65 19-38Z"
+              />
+
+              <path class="alz-contact__message" d="M80 66h202v91H80z" />
+
+              <path
+                class="alz-contact__message-line"
+                d="M108 96h130v10H108zm0 27h84v10h-84z"
+              />
+
+              <path
+                class="alz-contact__package"
+                d="M105 490l68-34 70 34-70 35-68-35Zm0 0v82l68 35v-82l-68-35Zm138 0v82l-70 35v-82l70-35Z"
+              />
+
+              <path class="alz-contact__package-line" d="m136 475 72 35" />
+            </svg>
+
+            <div class="alz-contact__visual-footer">
+              <span>La Paz</span>
+              <span>Santa Cruz</span>
+              <span>Distribución nacional</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="alz-compact-footer" aria-label="Pie de página">
+      <div class="alz-compact-footer__grid">
+        <section
+          class="alz-compact-footer__brand"
+          aria-labelledby="footer-brand-title"
+        >
+          <a
+            class="alz-compact-footer__logo"
+            href="index.html"
+            aria-label="Ir al inicio de Alzarsi"
+          >
+            <img src="assets/alzarsi-logo.png" alt="Alzarsi Ltda." />
+          </a>
+          <p class="alz-compact-footer__promise" id="footer-brand-title">
+            <span>Importamos calidad.</span>
+            <span>Distribuimos confianza.</span>
+          </p>
+          <a class="alz-compact-footer__cta" href="index.html#contacto"
+            >Contáctanos</a
+          >
+        </section>
+
+        <nav class="alz-compact-footer__column" aria-label="Páginas">
+          <h3>Páginas</h3>
+          <a href="index.html">Inicio</a>
+          <a href="quienes-somos.html">Quiénes somos</a>
+          <a href="eventos.html">Novedades</a>
+          <a href="recetas.html">Recetas</a>
+        </nav>
+
+        <nav class="alz-compact-footer__column" aria-label="Productos">
+          <h3>Productos</h3>
+          <a href="index.html#productos">La Paz</a>
+          <a href="index.html#productos">Santa Cruz</a>
+          <a href="index.html#marcas">Nuestras marcas</a>
+          <a href="index.html#productos">Ver productos</a>
+        </nav>
+
+        <section
+          class="alz-compact-footer__column alz-compact-footer__news"
+          aria-labelledby="footer-news-title"
+        >
+          <h3 id="footer-news-title">Novedades</h3>
+          <a href="eventos.html"
+            >Alzarsi presente en el 4.º Concurso de Paellas y Arroces de
+            Bolivia</a
+          >
+          <a href="eventos.html"
+            >Arrózame triunfa con su showcooking en FITUR</a
+          >
+          <a class="alz-compact-footer__more" href="eventos.html"
+            >Ver todas <span aria-hidden="true">→</span></a
+          >
+        </section>
+
+        <section
+          class="alz-compact-footer__column"
+          aria-labelledby="footer-content-title"
+        >
+          <h3 id="footer-content-title">Contenido</h3>
+          <a class="alz-compact-footer__card" href="recetas.html">
+            <span>Recetas e inspiración</span>
+            <strong>Ideas para cocinar y compartir</strong>
+            <em>Explorar recetas →</em>
+          </a>
+        </section>
+
+        <section
+          class="alz-compact-footer__column alz-compact-footer__contact"
+          aria-labelledby="footer-contact-title"
+        >
+          <h3 id="footer-contact-title">Contáctanos</h3>
+          <address>
+            Av. Cristo Redentor, entre 6.º y 7.º anillo, calle B<br />Santa
+            Cruz de la Sierra, Bolivia
+          </address>
+          <a href="tel:+59133494777">+591 3 349 4777</a>
+          <a
+            href="https://wa.me/59172177160"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp: +591 721 77160</a
+          >
+          <a href="mailto:comercial@alzarsiltda.com"
+            >comercial@alzarsiltda.com</a
+          >
+          <div class="alz-compact-footer__socials" aria-label="Redes sociales">
+            <a
+              href="https://www.instagram.com/alzarsi.ltda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              ><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4.25"></circle><circle cx="17.4" cy="6.7" r="1"></circle></svg></a
+            >
+            <a
+              href="https://www.facebook.com/AlzarsiLtda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.4 8.1V6.5c0-.8.5-1 1-1H18V2.1l-3-.1c-3 0-4.6 1.8-4.6 4.3v1.8H8v3.8h2.4V22h4V11.9h3.1l.5-3.8h-3.6Z"></path></svg></a
+            >
+            <a
+              href="https://www.linkedin.com/company/alzarsi-ltda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.2 7.8A2.3 2.3 0 1 0 5.2 3a2.3 2.3 0 0 0 0 4.8ZM3.3 21h3.8V9.2H3.3V21Zm6.2 0h3.8v-6.6c0-1.7.3-3.3 2.4-3.3 2 0 2 1.9 2 3.4V21h3.8v-7.2c0-3.5-.8-6.2-4.9-6.2-2 0-3.3 1.1-3.8 2.1h-.1V8H9.1c.1 1.1.1 13 .1 13h.3Z"></path></svg></a
+            >
+          </div>
+        </section>
+      </div>
+      <div class="alz-compact-footer__utility">
+        <span>© 2026 Alzarsi Ltda.</span>
+        <span>Diseñado por <strong>ninefive</strong></span>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,332 +1,1074 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Conoce la historia, misión, visión y valores de Alzarsi Ltda., empresa boliviana de importación y distribución fundada en 2008.">
-  <meta name="theme-color" content="#003F6B">
-  <title>Quiénes Somos | Alzarsi Ltda.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260804b">
-  <style>
-    /* Embedded page layout: intentionally independent of quienes-somos.css. */
-    .about-page main { overflow: hidden; }
-    .about-page .navigation-link-active { color: var(--alzarsi-blue); }
-    .about-hero h1, .about-editorial h2, .about-statement h2,
-    .about-contact-bar h2 { font-family: "Montserrat", sans-serif; font-weight: 700; }
-    .about-hero {
-      color: #fff; height: clamp(390px, 38vw, 540px);
-      margin-top: var(--header-height, 92px); overflow: hidden; position: relative;
-    }
-    .about-hero-image, .about-editorial-figure img, .about-statement-figure img {
-      display: block; height: 100%; max-width: none; object-fit: cover; width: 100%;
-    }
-    .about-hero-image { object-position: center 50%; }
-    .about-hero-shade {
-      background: linear-gradient(90deg, rgba(12,26,37,.75), rgba(12,26,37,.34) 52%, rgba(12,26,37,.08));
-      inset: 0; position: absolute;
-    }
-    .about-hero-content {
-      bottom: 0; left: 50%; padding-bottom: clamp(42px, 5vw, 70px);
-      position: absolute; transform: translateX(-50%); width: 100%;
-    }
-    .about-breadcrumb { font-size: 13px; font-weight: 600; margin: 0 0 22px; }
-    .about-breadcrumb a { border-bottom: 1px solid rgba(255,255,255,.55); }
-    .about-hero h1 {
-      font-size: clamp(48px, 6vw, 82px); letter-spacing: -.045em;
-      line-height: .96; margin: 0 0 18px; text-transform: uppercase;
-    }
-    .about-hero-content > p:last-child {
-      font-family: "Inter", sans-serif; font-size: clamp(16px, 1.4vw, 20px);
-      font-weight: 500; margin: 0; max-width: 620px;
-    }
-    .about-opening { background: #fff; }
-    .about-opening-inner {
-      display: grid; gap: clamp(34px, 7vw, 110px);
-      grid-template-columns: minmax(220px,.62fr) minmax(0,1.38fr);
-      padding-bottom: clamp(70px,8vw,112px); padding-top: clamp(70px,8vw,112px);
-    }
-    .about-opening h2 {
-      color: #003f6b; font-family: "Montserrat", sans-serif; font-size: clamp(34px,4vw,58px);
-      font-weight: 700; letter-spacing: -.04em; line-height: 1.04; margin: 0;
-    }
-    .about-opening p {
-      color: #30343b; font-size: clamp(18px,1.55vw,23px); line-height: 1.62;
-      margin: 0; max-width: 830px;
-    }
-    .about-editorial, .about-statement { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); }
-    .about-editorial-dark { background: #30343b; color: #fff; }
-    .about-editorial-figure, .about-statement-figure {
-      aspect-ratio: 1.16 / 1; margin: 0; min-width: 0; overflow: hidden;
-    }
-    .about-editorial-copy, .about-statement-copy {
-      align-items: flex-start; display: flex; flex-direction: column; justify-content: center;
-      min-width: 0; padding: clamp(65px,8vw,135px);
-    }
-    .about-editorial h2, .about-statement h2 {
-      font-size: clamp(39px,4.3vw,68px); letter-spacing: -.045em; line-height: 1.03;
-      margin: 0 0 32px; text-transform: uppercase;
-    }
-    .about-editorial p, .about-statement p {
-      font-size: clamp(16px,1.3vw,20px); line-height: 1.75; margin: 0; max-width: 680px;
-    }
-    .about-editorial p { color: rgba(255,255,255,.82); }
-    .about-text-link {
-      border: 1px solid #e30613; color: #fff; font-size: 13px; font-weight: 700;
-      margin-top: 42px; padding: 18px 24px; text-transform: uppercase;
-    }
-    .about-text-link:hover, .about-text-link:focus-visible { background: #e30613; }
-    .about-statement { background: #f7f5f0; }
-    .about-statement-copy h2 { color: #003f6b; }
-    .about-statement-blue { background: #003f6b; color: #fff; }
-    .about-statement-blue h2 { color: #fff; }
-    .about-statement-blue p { color: rgba(255,255,255,.84); }
-    .about-contact-bar { background: #f7f5f0; border-bottom: 1px solid #c9cdd2; padding: 44px 0; }
-    .about-contact-bar-inner {
-      align-items: center; display: grid; gap: 30px;
-      grid-template-columns: 1.15fr .8fr .9fr 1.25fr;
-    }
-    .about-contact-intro { padding-right: 25px; }
-    .about-contact-bar h2 { color: #003f6b; font-size: 29px; letter-spacing: -.03em; margin: 0 0 7px; }
-    .about-contact-intro p { font-size: 13px; line-height: 1.5; margin: 0; }
-    .about-contact-bar-inner > a {
-      border-left: 1px solid #c9cdd2; font-size: 14px; font-weight: 600;
-      min-height: 52px; overflow-wrap: anywhere; padding-left: 27px;
-    }
-    .about-contact-bar-inner > a span {
-      color: #005b96; display: block; font-family: "Montserrat", sans-serif;
-      font-size: 10px; font-weight: 700; letter-spacing: .1em; margin-bottom: 9px; text-transform: uppercase;
-    }
-    @media (max-width:1050px) {
-      .about-opening-inner { gap: 50px; grid-template-columns: .7fr 1.3fr; }
-      .about-editorial-copy, .about-statement-copy { padding: 70px 7vw; }
-      .about-contact-bar-inner { grid-template-columns: 1fr 1fr; }
-      .about-contact-bar-inner > a:nth-of-type(2) { border-left: 0; }
-    }
-    @media (max-width:820px) {
-      .about-hero { height: 470px; }
-      .about-opening-inner { grid-template-columns: 1fr; }
-      .about-editorial, .about-statement { grid-template-columns: 1fr; }
-      .about-editorial-figure, .about-statement-figure { aspect-ratio: 4 / 3; }
-      .about-statement-reverse .about-statement-copy { grid-row: 1; }
-    }
-    @media (max-width:560px) {
-      .about-hero { height: 390px; margin-top: var(--header-height,68px); }
-      .about-hero-content { padding-bottom: 38px; }
-      .about-breadcrumb { margin-bottom: 25px; }
-      .about-hero h1 { font-size: 45px; }
-      .about-opening-inner { gap: 38px; padding-bottom: 64px; padding-top: 64px; }
-      .about-opening p { font-size: 18px; }
-      .about-editorial-copy, .about-statement-copy { padding: 58px 23px 64px; }
-      .about-editorial h2, .about-statement h2 { font-size: 37px; }
-      .about-contact-bar-inner { grid-template-columns: 1fr; }
-      .about-contact-bar-inner > a, .about-contact-bar-inner > a:nth-of-type(2) {
-        border-left: 0; border-top: 1px solid #c9cdd2; padding-left: 0; padding-top: 22px;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Conoce la historia, misión, visión y valores de Alzarsi Ltda., empresa boliviana de importación y distribución fundada en 2008."
+    />
+    <meta name="theme-color" content="#003F6B" />
+    <title>Quiénes Somos | Alzarsi Ltda.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260804b" />
+    <script src="script.js" defer></script>
+
+    <style>
+      /* Embedded page layout: intentionally independent of quienes-somos.css. */
+      .about-page main {
+        overflow: hidden;
       }
-    }
-  </style>
-  <script src="script.js" defer></script>
-</head>
+      .about-page .navigation-link-active {
+        color: var(--alzarsi-blue);
+      }
+      .about-hero h1,
+      .about-editorial h2,
+      .about-statement h2,
+      .about-contact-bar h2 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+      }
+      .about-hero {
+        color: #fff;
+        height: clamp(390px, 38vw, 540px);
+        margin-top: var(--header-height, 92px);
+        overflow: hidden;
+        position: relative;
+      }
+      .about-hero-image,
+      .about-editorial-figure img,
+      .about-statement-figure img {
+        display: block;
+        height: 100%;
+        max-width: none;
+        object-fit: cover;
+        width: 100%;
+      }
+      .about-hero-image {
+        object-position: center 50%;
+      }
+      .about-hero-shade {
+        background: linear-gradient(
+          90deg,
+          rgba(12, 26, 37, 0.75),
+          rgba(12, 26, 37, 0.34) 52%,
+          rgba(12, 26, 37, 0.08)
+        );
+        inset: 0;
+        position: absolute;
+      }
+      .about-hero-content {
+        bottom: 0;
+        left: 50%;
+        padding-bottom: clamp(42px, 5vw, 70px);
+        position: absolute;
+        transform: translateX(-50%);
+        width: 100%;
+      }
+      .about-breadcrumb {
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0 0 22px;
+      }
+      .about-breadcrumb a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+      }
+      .about-hero h1 {
+        font-size: clamp(48px, 6vw, 82px);
+        letter-spacing: -0.045em;
+        line-height: 0.96;
+        margin: 0 0 18px;
+        text-transform: uppercase;
+      }
+      .about-hero-content > p:last-child {
+        font-family: "Inter", sans-serif;
+        font-size: clamp(16px, 1.4vw, 20px);
+        font-weight: 500;
+        margin: 0;
+        max-width: 620px;
+      }
+      .about-opening {
+        background: #fff;
+      }
+      .about-opening-inner {
+        display: grid;
+        gap: clamp(34px, 7vw, 110px);
+        grid-template-columns: minmax(220px, 0.62fr) minmax(0, 1.38fr);
+        padding-bottom: clamp(70px, 8vw, 112px);
+        padding-top: clamp(70px, 8vw, 112px);
+      }
+      .about-opening h2 {
+        color: #003f6b;
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(34px, 4vw, 58px);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1.04;
+        margin: 0;
+      }
+      .about-opening p {
+        color: #30343b;
+        font-size: clamp(18px, 1.55vw, 23px);
+        line-height: 1.62;
+        margin: 0;
+        max-width: 830px;
+      }
+      .about-editorial,
+      .about-statement {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      }
+      .about-editorial-dark {
+        background: #30343b;
+        color: #fff;
+      }
+      .about-editorial-figure,
+      .about-statement-figure {
+        aspect-ratio: 1.16 / 1;
+        margin: 0;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .about-editorial-copy,
+      .about-statement-copy {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-width: 0;
+        padding: clamp(65px, 8vw, 135px);
+      }
+      .about-editorial h2,
+      .about-statement h2 {
+        font-size: clamp(39px, 4.3vw, 68px);
+        letter-spacing: -0.045em;
+        line-height: 1.03;
+        margin: 0 0 32px;
+        text-transform: uppercase;
+      }
+      .about-editorial p,
+      .about-statement p {
+        font-size: clamp(16px, 1.3vw, 20px);
+        line-height: 1.75;
+        margin: 0;
+        max-width: 680px;
+      }
+      .about-editorial p {
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .about-text-link {
+        border: 1px solid #e30613;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        margin-top: 42px;
+        padding: 18px 24px;
+        text-transform: uppercase;
+      }
+      .about-text-link:hover,
+      .about-text-link:focus-visible {
+        background: #e30613;
+      }
+      .about-statement {
+        background: #f7f5f0;
+      }
+      .about-statement-copy h2 {
+        color: #003f6b;
+      }
+      .about-statement-blue {
+        background: #003f6b;
+        color: #fff;
+      }
+      .about-statement-blue h2 {
+        color: #fff;
+      }
+      .about-statement-blue p {
+        color: rgba(255, 255, 255, 0.84);
+      }
+      .about-contact-bar {
+        background: #f7f5f0;
+        border-bottom: 1px solid #c9cdd2;
+        padding: 44px 0;
+      }
+      .about-contact-bar-inner {
+        align-items: center;
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 1.15fr 0.8fr 0.9fr 1.25fr;
+      }
+      .about-contact-intro {
+        padding-right: 25px;
+      }
+      .about-contact-bar h2 {
+        color: #003f6b;
+        font-size: 29px;
+        letter-spacing: -0.03em;
+        margin: 0 0 7px;
+      }
+      .about-contact-intro p {
+        font-size: 13px;
+        line-height: 1.5;
+        margin: 0;
+      }
+      .about-contact-bar-inner > a {
+        border-left: 1px solid #c9cdd2;
+        font-size: 14px;
+        font-weight: 600;
+        min-height: 52px;
+        overflow-wrap: anywhere;
+        padding-left: 27px;
+      }
+      .about-contact-bar-inner > a span {
+        color: #005b96;
+        display: block;
+        font-family: "Montserrat", sans-serif;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        margin-bottom: 9px;
+        text-transform: uppercase;
+      }
+      @media (max-width: 1050px) {
+        .about-opening-inner {
+          gap: 50px;
+          grid-template-columns: 0.7fr 1.3fr;
+        }
+        .about-editorial-copy,
+        .about-statement-copy {
+          padding: 70px 7vw;
+        }
+        .about-contact-bar-inner {
+          grid-template-columns: 1fr 1fr;
+        }
+        .about-contact-bar-inner > a:nth-of-type(2) {
+          border-left: 0;
+        }
+      }
+      @media (max-width: 820px) {
+        .about-hero {
+          height: 470px;
+        }
+        .about-opening-inner {
+          grid-template-columns: 1fr;
+        }
+        .about-editorial,
+        .about-statement {
+          grid-template-columns: 1fr;
+        }
+        .about-editorial-figure,
+        .about-statement-figure {
+          aspect-ratio: 4 / 3;
+        }
+        .about-statement-reverse .about-statement-copy {
+          grid-row: 1;
+        }
+      }
+      @media (max-width: 560px) {
+        .about-hero {
+          height: 390px;
+          margin-top: var(--header-height, 68px);
+        }
+        .about-hero-content {
+          padding-bottom: 38px;
+        }
+        .about-breadcrumb {
+          margin-bottom: 25px;
+        }
+        .about-hero h1 {
+          font-size: 45px;
+        }
+        .about-opening-inner {
+          gap: 38px;
+          padding-bottom: 64px;
+          padding-top: 64px;
+        }
+        .about-opening p {
+          font-size: 18px;
+        }
+        .about-editorial-copy,
+        .about-statement-copy {
+          padding: 58px 23px 64px;
+        }
+        .about-editorial h2,
+        .about-statement h2 {
+          font-size: 37px;
+        }
+        .about-contact-bar-inner {
+          grid-template-columns: 1fr;
+        }
+        .about-contact-bar-inner > a,
+        .about-contact-bar-inner > a:nth-of-type(2) {
+          border-left: 0;
+          border-top: 1px solid #c9cdd2;
+          padding-left: 0;
+          padding-top: 22px;
+        }
+      }
 
-<body class="about-page">
-  <header class="site-header surface-header" id="siteHeader">
-    <div class="header-shell layout-shell">
-      <a class="brand-link header-brand" href="index.html" aria-label="Ir al inicio">
-        <img class="brand-logo" src="assets/alzarsi-logo.png" alt="Alzarsi Ltda.">
-      </a>
+      /* Definitive hero positioning fix */
 
-      <nav class="desktop-navigation navigation-main" aria-label="Navegación principal">
-        <a class="navigation-link navigation-link-active" href="quienes-somos.html" aria-current="page">Quiénes somos</a>
-        <a class="navigation-link" href="index.html#marcas">Nuestras marcas</a>
-        <button class="navigation-link navigation-product-trigger" id="productMenuButton" type="button" aria-expanded="false" aria-controls="productMegaMenu">
-          Productos <span class="navigation-chevron" aria-hidden="true"></span>
-        </button>
-        <a class="navigation-link" href="index.html#recetas">Recetas</a>
-        <a class="navigation-link" href="index.html#novedades">Novedades</a>
-        <a class="navigation-link" href="index.html#multimedia">Multimedia</a>
-        <a class="navigation-link" href="#contacto">Contacto</a>
-      </nav>
+      html,
+      body.about-page {
+        margin: 0;
+        padding: 0;
+      }
 
-      <div class="header-actions">
-        <button class="menu-trigger" id="menuButton" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Abrir menú">
-          <span class="menu-lines" aria-hidden="true"><span></span><span></span><span></span></span>
-        </button>
-      </div>
-    </div>
+      body.about-page main {
+        display: block;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
 
-    <div class="product-mega-menu" id="productMegaMenu" aria-hidden="true">
-      <div class="product-mega-shell layout-shell">
-        <div class="product-mega-intro">
-          <h2>Productos por región</h2>
-          <p>Explora las marcas disponibles actualmente en cada mercado.</p>
-          <a href="index.html#productos">Ver productos destacados <span>→</span></a>
-        </div>
-        <section class="product-mega-column" aria-labelledby="aboutMegaLaPaz">
-          <a class="product-mega-title" id="aboutMegaLaPaz" href="https://alzarsiltda.com/la-paz/">La Paz <span>→</span></a>
-          <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
-          <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
-          <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
-          <a href="https://alzarsiltda.com/bioplast/">BioPlast</a>
-        </section>
-        <section class="product-mega-column" aria-labelledby="aboutMegaSantaCruz">
-          <a class="product-mega-title" id="aboutMegaSantaCruz" href="https://alzarsiltda.com/santa-cruz/">Santa Cruz <span>→</span></a>
-          <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
-          <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
-          <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
-          <a href="https://alzarsiltda.com/saborati/">Saborati</a>
-          <a href="https://alzarsiltda.com/arrozame/">Arrozame</a>
-          <a href="https://alzarsiltda.com/sanoriza/">Sanoriza</a>
-          <a href="https://alzarsiltda.com/roland-foods/">Roland Foods</a>
-        </section>
-        <section class="product-mega-column product-mega-upcoming" aria-labelledby="aboutMegaAutomotive">
-          <a class="product-mega-title" id="aboutMegaAutomotive" href="https://alzarsiltda.com/linea-automotriz/">Línea Automotriz <span>→</span></a>
-          <span class="upcoming-label">Próximamente</span>
-          <p>Estamos preparando esta nueva línea de productos.</p>
-        </section>
-      </div>
-    </div>
+      body.about-page main > section.about-hero-fixed {
+        background-color: #003f6b;
+        background-image: url("https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=2000&q=90");
+        background-position: center 58%;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: block;
+        height: clamp(390px, 38vw, 540px);
+        margin: 0 !important;
+        max-width: none;
+        overflow: hidden;
+        padding: 0 !important;
+        position: relative;
+        top: auto !important;
+        transform: none !important;
+        width: 100%;
+      }
 
-    <nav class="mobile-navigation" id="mobileMenu" aria-label="Navegación móvil">
-      <div class="mobile-navigation-inner layout-shell">
-        <a class="mobile-navigation-link" href="quienes-somos.html">Quiénes somos</a>
-        <a class="mobile-navigation-link" href="index.html#marcas">Nuestras marcas</a>
-        <div class="mobile-product-group">
-          <button class="mobile-navigation-link mobile-product-trigger" id="mobileProductButton" type="button" aria-expanded="false" aria-controls="mobileProductMenu">
-            Productos <span class="navigation-chevron" aria-hidden="true"></span>
+      body.about-page main > section.about-hero-fixed::before,
+      body.about-page main > section.about-hero-fixed::after {
+        content: none !important;
+        display: none !important;
+      }
+
+      body.about-page .about-hero-fixed .about-hero-shade {
+        background: linear-gradient(
+          90deg,
+          rgba(12, 26, 37, 0.78) 0%,
+          rgba(12, 26, 37, 0.38) 52%,
+          rgba(12, 26, 37, 0.08) 100%
+        );
+        inset: 0;
+        position: absolute;
+      }
+
+      body.about-page .about-hero-fixed .about-hero-content {
+        bottom: 0;
+        left: 50%;
+        padding-bottom: clamp(42px, 5vw, 70px);
+        position: absolute;
+        transform: translateX(-50%) !important;
+        width: 100%;
+      }
+
+      body.about-page .about-hero-fixed .about-breadcrumb {
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        margin: 0 0 22px;
+      }
+
+      body.about-page .about-hero-fixed .about-breadcrumb a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.55);
+        color: #ffffff;
+      }
+
+      body.about-page .about-hero-fixed h1 {
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(48px, 6vw, 82px);
+        font-weight: 700;
+        letter-spacing: -0.045em;
+        line-height: 0.96;
+        margin: 0 0 18px;
+        text-transform: uppercase;
+      }
+
+      body.about-page .about-hero-fixed .about-hero-content > p:last-child {
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: clamp(16px, 1.4vw, 20px);
+        font-weight: 500;
+        line-height: 1.5;
+        margin: 0;
+        max-width: 620px;
+      }
+
+      @media (max-width: 820px) {
+        body.about-page main > section.about-hero-fixed {
+          background-position: center;
+          height: 470px;
+        }
+      }
+
+      @media (max-width: 560px) {
+        body.about-page main > section.about-hero-fixed {
+          height: 390px;
+        }
+
+        body.about-page .about-hero-fixed .about-hero-content {
+          padding-bottom: 38px;
+        }
+
+        body.about-page .about-hero-fixed h1 {
+          font-size: 45px;
+        }
+      }
+    </style>
+  </head>
+
+  <body id="top" class="about-page">
+    <header class="site-header surface-header" id="siteHeader">
+      <div class="header-shell layout-shell">
+        <a
+          class="brand-link header-brand"
+          href="index.html"
+          aria-label="Ir al inicio"
+        >
+          <img
+            class="brand-logo"
+            src="assets/alzarsi-logo.png"
+            alt="Alzarsi Ltda."
+          />
+        </a>
+
+        <nav
+          class="desktop-navigation navigation-main"
+          aria-label="Navegación principal"
+        >
+          <a
+            class="navigation-link navigation-link-active"
+            href="quienes-somos.html"
+            aria-current="page"
+            >Quiénes somos</a
+          >
+          <a class="navigation-link" href="index.html#marcas"
+            >Nuestras marcas</a
+          >
+          <button
+            class="navigation-link navigation-product-trigger"
+            id="productMenuButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="productMegaMenu"
+          >
+            Productos
+            <span class="navigation-chevron" aria-hidden="true"></span>
           </button>
-          <div class="mobile-product-menu" id="mobileProductMenu">
-            <div class="mobile-product-menu-inner">
-              <div class="mobile-product-region">
-                <a class="mobile-product-title" href="https://alzarsiltda.com/la-paz/">La Paz</a>
-                <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
-                <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
-                <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
-                <a href="https://alzarsiltda.com/bioplast/">BioPlast</a>
-              </div>
-              <div class="mobile-product-region">
-                <a class="mobile-product-title" href="https://alzarsiltda.com/santa-cruz/">Santa Cruz</a>
-                <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
-                <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
-                <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
-                <a href="https://alzarsiltda.com/saborati/">Saborati</a>
-                <a href="https://alzarsiltda.com/arrozame/">Arrozame</a>
-                <a href="https://alzarsiltda.com/sanoriza/">Sanoriza</a>
-                <a href="https://alzarsiltda.com/roland-foods/">Roland Foods</a>
-              </div>
-              <div class="mobile-product-region">
-                <a class="mobile-product-title" href="https://alzarsiltda.com/linea-automotriz/">Línea Automotriz</a>
-                <span>Próximamente</span>
+          <a class="navigation-link" href="recetas.html">Recetas</a>
+          <a class="navigation-link" href="eventos.html">Novedades</a>
+          <a class="navigation-link" href="media.html">Multimedia</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button-contact header-contact" href="#contacto">Contacto</a>
+          <button
+            class="menu-trigger"
+            id="menuButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Abrir menú"
+          >
+            <span class="menu-lines" aria-hidden="true"
+              ><span></span><span></span><span></span
+            ></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="product-mega-menu" id="productMegaMenu" aria-hidden="true">
+        <div class="product-mega-shell layout-shell">
+          <div class="product-mega-intro">
+            <h2>Productos por región</h2>
+            <p>Explora las marcas disponibles actualmente en cada mercado.</p>
+            <a href="index.html#productos"
+              >Ver productos destacados <span>→</span></a
+            >
+          </div>
+          <section class="product-mega-column" aria-labelledby="aboutMegaLaPaz">
+            <a
+              class="product-mega-title"
+              id="aboutMegaLaPaz"
+              href="https://alzarsiltda.com/la-paz/"
+              >La Paz <span>→</span></a
+            >
+            <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+            <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+            <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+            <a href="https://alzarsiltda.com/bioplast/">BioPlast</a>
+          </section>
+          <section
+            class="product-mega-column"
+            aria-labelledby="aboutMegaSantaCruz"
+          >
+            <a
+              class="product-mega-title"
+              id="aboutMegaSantaCruz"
+              href="https://alzarsiltda.com/santa-cruz/"
+              >Santa Cruz <span>→</span></a
+            >
+            <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+            <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+            <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+            <a href="https://alzarsiltda.com/saborati/">Saborati</a>
+            <a href="https://alzarsiltda.com/arrozame/">Arrozame</a>
+            <a href="https://alzarsiltda.com/sanoriza/">Sanoriza</a>
+            <a href="https://alzarsiltda.com/roland-foods/">Roland Foods</a>
+          </section>
+          <section
+            class="product-mega-column product-mega-upcoming"
+            aria-labelledby="aboutMegaAutomotive"
+          >
+            <a
+              class="product-mega-title"
+              id="aboutMegaAutomotive"
+              href="https://alzarsiltda.com/linea-automotriz/"
+              >Línea Automotriz <span>→</span></a
+            >
+            <span class="upcoming-label">Próximamente</span>
+            <p>Estamos preparando esta nueva línea de productos.</p>
+          </section>
+        </div>
+      </div>
+
+      <nav
+        class="mobile-navigation"
+        id="mobileMenu"
+        aria-label="Navegación móvil"
+      >
+        <div class="mobile-navigation-inner layout-shell">
+          <a class="mobile-navigation-link" href="quienes-somos.html"
+            >Quiénes somos</a
+          >
+          <a class="mobile-navigation-link" href="index.html#marcas"
+            >Nuestras marcas</a
+          >
+          <div class="mobile-product-group">
+            <button
+              class="mobile-navigation-link mobile-product-trigger"
+              id="mobileProductButton"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobileProductMenu"
+            >
+              Productos
+              <span class="navigation-chevron" aria-hidden="true"></span>
+            </button>
+            <div class="mobile-product-menu" id="mobileProductMenu">
+              <div class="mobile-product-menu-inner">
+                <div class="mobile-product-region">
+                  <a
+                    class="mobile-product-title"
+                    href="https://alzarsiltda.com/la-paz/"
+                    >La Paz</a
+                  >
+                  <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+                  <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+                  <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+                  <a href="https://alzarsiltda.com/bioplast/">BioPlast</a>
+                </div>
+                <div class="mobile-product-region">
+                  <a
+                    class="mobile-product-title"
+                    href="https://alzarsiltda.com/santa-cruz/"
+                    >Santa Cruz</a
+                  >
+                  <a href="https://alzarsiltda.com/lee-kum-kee/">Lee Kum Kee</a>
+                  <a href="https://alzarsiltda.com/el-cazador/">El Cazador</a>
+                  <a href="https://alzarsiltda.com/te-chapare/">Té Chapare</a>
+                  <a href="https://alzarsiltda.com/saborati/">Saborati</a>
+                  <a href="https://alzarsiltda.com/arrozame/">Arrozame</a>
+                  <a href="https://alzarsiltda.com/sanoriza/">Sanoriza</a>
+                  <a href="https://alzarsiltda.com/roland-foods/"
+                    >Roland Foods</a
+                  >
+                </div>
+                <div class="mobile-product-region">
+                  <a
+                    class="mobile-product-title"
+                    href="https://alzarsiltda.com/linea-automotriz/"
+                    >Línea Automotriz</a
+                  >
+                  <span>Próximamente</span>
+                </div>
               </div>
             </div>
           </div>
+          <a class="mobile-navigation-link" href="recetas.html">Recetas</a>
+          <a class="mobile-navigation-link" href="eventos.html">Novedades</a>
+          <a class="mobile-navigation-link" href="media.html">Multimedia</a>
+          <a class="mobile-navigation-contact" href="#contacto"
+            >Contactar a Alzarsi</a
+          >
         </div>
-        <a class="mobile-navigation-link" href="index.html#recetas">Recetas</a>
-        <a class="mobile-navigation-link" href="index.html#novedades">Novedades</a>
-        <a class="mobile-navigation-link" href="index.html#multimedia">Multimedia</a>
-        <a class="mobile-navigation-link" href="#contacto">Contacto</a>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main>
-    <section class="about-hero">
-      <img class="about-hero-image" src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=2000&q=90" alt="Productos exhibidos en un comercio de alimentos">
-      <div class="about-hero-shade" aria-hidden="true"></div>
-      <div class="about-hero-content layout-shell">
-        <p class="about-breadcrumb"><a href="index.html">Inicio</a> / Quiénes somos</p>
-        <h1>Nuestra trayectoria</h1>
-        <p>Marcas y productos para hogares, comercios y negocios de Bolivia.</p>
-      </div>
-    </section>
+    <main>
+      <section class="about-hero about-hero-fixed">
+        <div class="about-hero-shade" aria-hidden="true"></div>
 
-    <section class="about-opening">
-      <div class="about-opening-inner layout-shell">
-        <h2>Una empresa boliviana con alcance nacional</h2>
-        <p>Alzarsi Ltda. se dedica a la importación, comercialización y distribución de productos comestibles, artículos de bazar y repuestos automotrices. Atendemos al comercio minorista, supermercados y negocios del sector gastronómico y hotelero, conectando marcas con clientes en el mercado boliviano.</p>
-      </div>
-    </section>
+        <div class="about-hero-content layout-shell">
+          <p class="about-breadcrumb">
+            <a href="index.html">Inicio</a> / Quiénes somos
+          </p>
 
-    <section class="about-editorial about-editorial-dark">
-      <figure class="about-editorial-figure">
-        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=90" alt="Atención comercial profesional en un punto de venta">
-      </figure>
-      <div class="about-editorial-copy">
-        <h2>Distribución nacional</h2>
-        <p>Nuestra operación atiende comercios, supermercados, distribuidores, restaurantes, hoteles y otros clientes profesionales. Trabajamos para que cada producto llegue al mercado con una gestión comercial responsable y en cumplimiento de la normativa boliviana.</p>
-        <a class="about-text-link" href="index.html#marcas">Conocer nuestras marcas</a>
-      </div>
-    </section>
+          <h1>Nuestra trayectoria</h1>
 
-    <section class="about-statement">
-      <div class="about-statement-copy">
-        <h2>Misión</h2>
-        <p>Contribuir al crecimiento económico del país abasteciendo una oferta diversa de productos nacionales e importados, construyendo relaciones duraderas con nuestros clientes y actuando como un proveedor confiable.</p>
-      </div>
-      <figure class="about-statement-figure">
-        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=90" alt="Selección diversa de alimentos para el mercado boliviano">
-      </figure>
-    </section>
-
-    <section class="about-statement about-statement-reverse">
-      <figure class="about-statement-figure">
-        <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=90" alt="Equipo profesional reunido para planificar el crecimiento comercial">
-      </figure>
-      <div class="about-statement-copy about-statement-blue">
-        <h2>Visión</h2>
-        <p>Consolidarnos como un importador y distribuidor líder, ampliando nuestro portafolio con responsabilidad y ofreciendo una atención eficiente, cercana y consistente.</p>
-      </div>
-    </section>
-
-    <section class="about-contact-bar" id="contacto" aria-label="Información de contacto">
-      <div class="layout-shell about-contact-bar-inner">
-        <div class="about-contact-intro">
-          <h2>Hablemos</h2>
-          <p>Nuestro equipo comercial está listo para atender tu consulta.</p>
+          <p>
+            Marcas y productos para hogares, comercios y negocios de Bolivia.
+          </p>
         </div>
-        <a href="tel:+59133494777"><span>Teléfono</span>+591 3 349 4777</a>
-        <a href="https://wa.me/59172177160" target="_blank" rel="noopener"><span>WhatsApp</span>+591 721 77160</a>
-        <a href="mailto:comercial@alzarsiltda.com"><span>Correo</span>comercial@alzarsiltda.com</a>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <footer class="site-footer">
-    <div class="footer-main layout-shell">
-      <div class="footer-brand">
-        <img src="assets/alzarsi-logo.png" alt="Alzarsi Ltda.">
-        <p>Conectando marcas, mercados y familias desde 2008.</p>
-        <div class="social-links"><a href="#" aria-label="Facebook">f</a><a href="#" aria-label="Instagram">ig</a><a href="#" aria-label="TikTok">tk</a></div>
+      <section class="about-opening">
+        <div class="about-opening-inner layout-shell">
+          <h2>Una empresa boliviana con alcance nacional</h2>
+          <p>
+            Alzarsi Ltda. se dedica a la importación, comercialización y
+            distribución de productos comestibles, artículos de bazar y
+            repuestos automotrices. Atendemos al comercio minorista,
+            supermercados y negocios del sector gastronómico y hotelero,
+            conectando marcas con clientes en el mercado boliviano.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-editorial about-editorial-dark">
+        <figure class="about-editorial-figure">
+          <img
+            src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=90"
+            alt="Atención comercial profesional en un punto de venta"
+          />
+        </figure>
+        <div class="about-editorial-copy">
+          <h2>Distribución nacional</h2>
+          <p>
+            Nuestra operación atiende comercios, supermercados, distribuidores,
+            restaurantes, hoteles y otros clientes profesionales. Trabajamos
+            para que cada producto llegue al mercado con una gestión comercial
+            responsable y en cumplimiento de la normativa boliviana.
+          </p>
+          <a class="about-text-link" href="index.html#marcas"
+            >Conocer nuestras marcas</a
+          >
+        </div>
+      </section>
+
+      <section class="about-statement">
+        <div class="about-statement-copy">
+          <h2>Misión</h2>
+          <p>
+            Contribuir al crecimiento económico del país abasteciendo una oferta
+            diversa de productos nacionales e importados, construyendo
+            relaciones duraderas con nuestros clientes y actuando como un
+            proveedor confiable.
+          </p>
+        </div>
+        <figure class="about-statement-figure">
+          <img
+            src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=90"
+            alt="Selección diversa de alimentos para el mercado boliviano"
+          />
+        </figure>
+      </section>
+
+      <section class="about-statement about-statement-reverse">
+        <figure class="about-statement-figure">
+          <img
+            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=90"
+            alt="Equipo profesional reunido para planificar el crecimiento comercial"
+          />
+        </figure>
+        <div class="about-statement-copy about-statement-blue">
+          <h2>Visión</h2>
+          <p>
+            Consolidarnos como un importador y distribuidor líder, ampliando
+            nuestro portafolio con responsabilidad y ofreciendo una atención
+            eficiente, cercana y consistente.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="alz-contact"
+        id="contacto"
+        aria-labelledby="alz-contact-title"
+      >
+        <div class="alz-contact__container">
+          <div class="alz-contact__content">
+            <h2 class="alz-contact__title" id="alz-contact-title">
+              Estamos para ayudarte
+            </h2>
+
+            <p class="alz-contact__intro">
+              Si necesitas información sobre nuestros productos, marcas o
+              distribución, comunícate directamente con nuestro equipo.
+              Cuéntanos qué necesitas y te orientaremos a través del canal más
+              conveniente.
+            </p>
+
+            <div
+              class="alz-contact__quick-actions"
+              aria-label="Opciones de contacto rápido"
+            >
+              <a
+                class="alz-contact__action alz-contact__action--primary"
+                href="https://wa.me/59172177160"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>
+                  <small>Respuesta directa</small>
+                  Escribir por WhatsApp
+                </span>
+              </a>
+
+              <a
+                class="alz-contact__action alz-contact__action--secondary"
+                href="tel:+59133494777"
+              >
+                <span>
+                  <small>Atención telefónica</small>
+                  +591 3 349 4777
+                </span>
+              </a>
+            </div>
+
+            <div class="alz-contact__email-panel">
+              <button
+                class="alz-contact__email-toggle"
+                id="alz-email-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="alz-email-content"
+              >
+                <span class="alz-contact__email-toggle-label">
+                  Enviar una consulta por correo
+                </span>
+
+                <span class="alz-contact__chevron" aria-hidden="true">⌄</span>
+              </button>
+
+              <div
+                class="alz-contact__email-content"
+                id="alz-email-content"
+                aria-hidden="true"
+              >
+                <form class="alz-contact__form" id="alz-contact-form">
+                  <div class="alz-contact__field-row">
+                    <div class="alz-contact__field">
+                      <label for="alz-contact-name">Nombre y apellido</label>
+                      <input
+                        id="alz-contact-name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                      />
+                    </div>
+
+                    <div class="alz-contact__field">
+                      <label for="alz-contact-phone">Teléfono</label>
+                      <input
+                        id="alz-contact-phone"
+                        name="phone"
+                        type="tel"
+                        autocomplete="tel"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-email">Correo electrónico</label>
+                    <input
+                      id="alz-contact-email"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                    />
+                  </div>
+
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-subject"
+                      >Motivo de la consulta</label
+                    >
+
+                    <select id="alz-contact-subject" name="subject" required>
+                      <option value="">Selecciona una opción</option>
+                      <option>Información sobre productos</option>
+                      <option>Distribución y ventas</option>
+                      <option>Marcas y proveedores</option>
+                      <option>Atención al cliente</option>
+                      <option>Otra consulta</option>
+                    </select>
+                  </div>
+
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-message">Mensaje</label>
+                    <textarea
+                      id="alz-contact-message"
+                      name="message"
+                      rows="5"
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="alz-contact__form-footer">
+                    <p class="alz-contact__form-note">
+                      Los campos son obligatorios.
+                    </p>
+
+                    <button class="alz-contact__submit" type="submit">
+                      Preparar correo →
+                    </button>
+                  </div>
+
+                  <p
+                    class="alz-contact__status"
+                    id="alz-contact-status"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
+                </form>
+              </div>
+            </div>
+
+            <address class="alz-contact__details">
+              <a href="mailto:comercial@alzarsiltda.com">
+                comercial@alzarsiltda.com
+              </a>
+
+              <span aria-hidden="true"></span>
+
+              <a
+                href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Luis+Saavedra+Suarez+9335+Santa+Cruz+Bolivia"
+                target="_blank"
+                rel="noopener"
+              >
+                Santa Cruz de la Sierra, Bolivia
+              </a>
+            </address>
+          </div>
+
+          <div class="alz-contact__visual" aria-hidden="true">
+            <div class="alz-contact__visual-heading">
+              <span>Alzarsi Ltda.</span>
+              <p>Conectando marcas, productos y personas.</p>
+            </div>
+
+            <svg
+              class="alz-contact__illustration"
+              viewBox="0 0 620 620"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                class="alz-contact__shape--light"
+                d="M65 130C160 24 354 4 500 84c119 65 150 222 75 342-78 125-246 173-379 105C55 459-10 307 32 191c8-23 19-43 33-61Z"
+              />
+
+              <path
+                class="alz-contact__shape--blue"
+                d="M359 81c103 12 187 88 199 190 11 94-42 184-126 225-67 33-144 31-207 1 73-14 135-65 163-136 36-91 14-198-54-270 8-4 16-7 25-10Z"
+              />
+
+              <circle
+                class="alz-contact__accent-circle"
+                cx="90"
+                cy="455"
+                r="28"
+              />
+
+              <path
+                class="alz-contact__line"
+                d="M276 405h270M490 407v128M325 407v128M286 537h242"
+              />
+
+              <rect
+                class="alz-contact__screen"
+                x="372"
+                y="270"
+                width="145"
+                height="104"
+                rx="7"
+              />
+
+              <circle class="alz-contact__skin" cx="225" cy="208" r="43" />
+
+              <path
+                class="alz-contact__hair"
+                d="M184 207c-4-45 25-75 66-69 27 4 41 24 37 50-19-1-37-9-50-23-7 23-24 37-53 42Z"
+              />
+
+              <path
+                class="alz-contact__shirt"
+                d="M170 291c15-33 43-49 77-42 37 8 56 39 59 84l5 74H145l9-73c2-18 7-33 16-43Z"
+              />
+
+              <path
+                class="alz-contact__skin"
+                d="m258 286 73 62 67-27 13 23-88 45-84-65 19-38Z"
+              />
+
+              <path class="alz-contact__message" d="M80 66h202v91H80z" />
+
+              <path
+                class="alz-contact__message-line"
+                d="M108 96h130v10H108zm0 27h84v10h-84z"
+              />
+
+              <path
+                class="alz-contact__package"
+                d="M105 490l68-34 70 34-70 35-68-35Zm0 0v82l68 35v-82l-68-35Zm138 0v82l-70 35v-82l70-35Z"
+              />
+
+              <path class="alz-contact__package-line" d="m136 475 72 35" />
+            </svg>
+
+            <div class="alz-contact__visual-footer">
+              <span>La Paz</span>
+              <span>Santa Cruz</span>
+              <span>Distribución nacional</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="alz-compact-footer" aria-label="Pie de página">
+      <div class="alz-compact-footer__grid">
+        <section
+          class="alz-compact-footer__brand"
+          aria-labelledby="footer-brand-title"
+        >
+          <a
+            class="alz-compact-footer__logo"
+            href="index.html"
+            aria-label="Ir al inicio de Alzarsi"
+          >
+            <img src="assets/alzarsi-logo.png" alt="Alzarsi Ltda." />
+          </a>
+          <p class="alz-compact-footer__promise" id="footer-brand-title">
+            <span>Importamos calidad.</span>
+            <span>Distribuimos confianza.</span>
+          </p>
+          <a class="alz-compact-footer__cta" href="index.html#contacto"
+            >Contáctanos</a
+          >
+        </section>
+
+        <nav class="alz-compact-footer__column" aria-label="Páginas">
+          <h3>Páginas</h3>
+          <a href="index.html">Inicio</a>
+          <a href="quienes-somos.html">Quiénes somos</a>
+          <a href="eventos.html">Novedades</a>
+          <a href="recetas.html">Recetas</a>
+        </nav>
+
+        <nav class="alz-compact-footer__column" aria-label="Productos">
+          <h3>Productos</h3>
+          <a href="index.html#productos">La Paz</a>
+          <a href="index.html#productos">Santa Cruz</a>
+          <a href="index.html#marcas">Nuestras marcas</a>
+          <a href="index.html#productos">Ver productos</a>
+        </nav>
+
+        <section
+          class="alz-compact-footer__column alz-compact-footer__news"
+          aria-labelledby="footer-news-title"
+        >
+          <h3 id="footer-news-title">Novedades</h3>
+          <a href="eventos.html"
+            >Alzarsi presente en el 4.º Concurso de Paellas y Arroces de
+            Bolivia</a
+          >
+          <a href="eventos.html"
+            >Arrózame triunfa con su showcooking en FITUR</a
+          >
+          <a class="alz-compact-footer__more" href="eventos.html"
+            >Ver todas <span aria-hidden="true">→</span></a
+          >
+        </section>
+
+        <section
+          class="alz-compact-footer__column"
+          aria-labelledby="footer-content-title"
+        >
+          <h3 id="footer-content-title">Contenido</h3>
+          <a class="alz-compact-footer__card" href="recetas.html">
+            <span>Recetas e inspiración</span>
+            <strong>Ideas para cocinar y compartir</strong>
+            <em>Explorar recetas →</em>
+          </a>
+        </section>
+
+        <section
+          class="alz-compact-footer__column alz-compact-footer__contact"
+          aria-labelledby="footer-contact-title"
+        >
+          <h3 id="footer-contact-title">Contáctanos</h3>
+          <address>
+            Av. Cristo Redentor, entre 6.º y 7.º anillo, calle B<br />Santa Cruz
+            de la Sierra, Bolivia
+          </address>
+          <a href="tel:+59133494777">+591 3 349 4777</a>
+          <a
+            href="https://wa.me/59172177160"
+            target="_blank"
+            rel="noopener noreferrer"
+            >WhatsApp: +591 721 77160</a
+          >
+          <a href="mailto:comercial@alzarsiltda.com"
+            >comercial@alzarsiltda.com</a
+          >
+          <div class="alz-compact-footer__socials" aria-label="Redes sociales">
+            <a
+              href="https://www.instagram.com/alzarsi.ltda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4.25"></circle>
+                <circle cx="17.4" cy="6.7" r="1"></circle></svg
+            ></a>
+            <a
+              href="https://www.facebook.com/AlzarsiLtda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M14.4 8.1V6.5c0-.8.5-1 1-1H18V2.1l-3-.1c-3 0-4.6 1.8-4.6 4.3v1.8H8v3.8h2.4V22h4V11.9h3.1l.5-3.8h-3.6Z"
+                ></path></svg
+            ></a>
+            <a
+              href="https://www.linkedin.com/company/alzarsi-ltda/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              ><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M5.2 7.8A2.3 2.3 0 1 0 5.2 3a2.3 2.3 0 0 0 0 4.8ZM3.3 21h3.8V9.2H3.3V21Zm6.2 0h3.8v-6.6c0-1.7.3-3.3 2.4-3.3 2 0 2 1.9 2 3.4V21h3.8v-7.2c0-3.5-.8-6.2-4.9-6.2-2 0-3.3 1.1-3.8 2.1h-.1V8H9.1c.1 1.1.1 13 .1 13h.3Z"
+                ></path></svg
+            ></a>
+          </div>
+        </section>
       </div>
-      <div class="footer-column">
-        <h3>Empresa</h3>
-        <a href="quienes-somos.html">Quiénes somos</a>
-        <a href="index.html#marcas">Nuestras marcas</a>
-        <a href="index.html#novedades">Noticias y eventos</a>
-        <a href="#contacto">Contacto</a>
+      <div class="alz-compact-footer__utility">
+        <span>© 2026 Alzarsi Ltda.</span>
+        <span>Diseñado por <strong>ninefive</strong></span>
       </div>
-      <div class="footer-column">
-        <h3>Contenido</h3>
-        <a href="index.html#productos">Productos</a>
-        <a href="index.html#recetas">Recetas</a>
-        <a href="index.html#multimedia">Galería de fotos</a>
-        <a href="index.html#multimedia">Galería de videos</a>
-        <a href="index.html#multimedia">Redes sociales</a>
-      </div>
-      <div class="footer-column contact-column">
-        <h3>Contacto</h3>
-        <a href="tel:+59133494777">+591 3 349 4777</a>
-        <a href="https://wa.me/59172177160" target="_blank" rel="noopener">WhatsApp: +591 721 77160</a>
-        <a href="mailto:comercial@alzarsiltda.com">comercial@alzarsiltda.com</a>
-        <p>Av. Luis Saavedra Suárez N.º 9335<br>Urb. El Remanso II, UV 334, MZA 9<br>Santa Cruz de la Sierra, Bolivia</p>
-        <p>Lunes a viernes · 08:00–16:00</p>
-      </div>
-    </div>
-    <div class="footer-bottom layout-shell">
-      <p>© <span id="currentYear"></span> Alzarsi Ltda. Todos los derechos reservados.</p>
-      <div><a href="#">Política de privacidad</a><a href="#">Términos de uso</a><a href="#">Preferencias de cookies</a></div>
-    </div>
-  </footer>
-</body>
+    </footer>
+  </body>
 </html>
