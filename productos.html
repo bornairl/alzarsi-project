@@ -1,0 +1,608 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explora el portafolio de productos y marcas distribuidos por Alzarsi en La Paz y Santa Cruz."
+    />
+    <meta name="theme-color" content="#003F6B" />
+    <title>Productos | Alzarsi Ltda.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="productos.css?v=1" />
+    <script src="script.js?v=7" defer></script>
+    <script src="productos-data.js?v=1" defer></script>
+    <script src="productos.js?v=1" defer></script>
+  </head>
+  <body id="top" class="products-page">
+    <header class="site-header surface-header" id="siteHeader">
+      <div class="header-shell layout-shell">
+        <a
+          class="brand-link header-brand"
+          href="index.html"
+          aria-label="Ir al inicio"
+          ><img
+            class="brand-logo"
+            src="assets/alzarsi-logo.png"
+            alt="Alzarsi Ltda."
+        /></a>
+        <nav
+          class="desktop-navigation navigation-main"
+          aria-label="Navegación principal"
+        >
+          <a class="navigation-link" href="quienes-somos.html">Quiénes somos</a>
+          <a class="navigation-link" href="index.html#marcas"
+            >Nuestras marcas</a
+          >
+          <a
+            class="navigation-link is-current"
+            href="productos.html"
+            aria-current="page"
+            >Productos</a
+          >
+          <a class="navigation-link" href="recetas.html">Recetas</a
+          ><a class="navigation-link" href="eventos.html">Novedades</a
+          ><a class="navigation-link" href="media.html">Multimedia</a>
+        </nav>
+        <div class="header-actions">
+          <a class="button-contact header-contact" href="#contacto">Contacto</a
+          ><button
+            class="menu-trigger"
+            id="menuButton"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+            aria-label="Abrir menú"
+          >
+            <span class="menu-lines" aria-hidden="true"
+              ><span></span><span></span><span></span
+            ></span>
+          </button>
+        </div>
+      </div>
+      <nav
+        class="mobile-navigation"
+        id="mobileMenu"
+        aria-label="Navegación móvil"
+      >
+        <div class="mobile-navigation-inner layout-shell">
+          <a class="mobile-navigation-link" href="quienes-somos.html"
+            >Quiénes somos</a
+          ><a class="mobile-navigation-link" href="index.html#marcas"
+            >Nuestras marcas</a
+          ><a
+            class="mobile-navigation-link"
+            href="productos.html"
+            aria-current="page"
+            >Productos</a
+          ><a class="mobile-navigation-link" href="recetas.html">Recetas</a
+          ><a class="mobile-navigation-link" href="eventos.html">Novedades</a
+          ><a class="mobile-navigation-link" href="media.html">Multimedia</a
+          ><a class="mobile-navigation-contact" href="#contacto"
+            >Contactar a Alzarsi</a
+          >
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="catalog-hero">
+        <div class="catalog-hero__grid">
+          <div class="catalog-hero__copy">
+            <h1>El sabor de lo bien hecho.</h1>
+            <p class="catalog-hero__lead">
+              Descubre marcas seleccionadas para hogares, comercios y cocinas
+              profesionales en La Paz y Santa Cruz.
+            </p>
+            <div class="city-switch" aria-label="Filtrar por ciudad">
+              <button type="button" data-city="all" aria-pressed="true">
+                Todo</button
+              ><button type="button" data-city="la-paz" aria-pressed="false">
+                La Paz</button
+              ><button
+                type="button"
+                data-city="santa-cruz"
+                aria-pressed="false"
+              >
+                Santa Cruz
+              </button>
+            </div>
+          </div>
+          <div class="catalog-hero__visual">
+            <img
+              class="catalog-hero__scene"
+              src="assets/catalog/hero-kikko-table.png"
+              alt="Mesa de cocina con ingredientes frescos Kikko"
+            />
+            <div class="hero-products" aria-label="Productos Kikko">
+              <img
+                src="assets/products/kikko/salsa-mensi.png"
+                alt="Salsa Mensi Kikko"
+              />
+              <img
+                src="assets/products/kikko/siyau-original.png"
+                alt="Siyau Original Kikko"
+              />
+              <img
+                src="assets/products/kikko/ajoikion.png"
+                alt="Ajoikion Kikko"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="catalog-section">
+        <div class="catalog-shell">
+          <div class="catalog-section__head">
+            <div>
+              <h2>Marcas para descubrir.</h2>
+            </div>
+            <p>
+              Explora el portafolio por marca y encuentra la selección
+              disponible para cada ciudad.
+            </p>
+          </div>
+          <div class="catalog-brands" data-brand-grid></div>
+        </div>
+      </section>
+      <section class="featured-brand" data-featured-brand hidden>
+        <div class="catalog-shell featured-brand__grid">
+          <div class="featured-brand__copy">
+            <img data-featured-logo alt="" />
+            <h2 data-featured-title></h2>
+            <p data-featured-text></p>
+            <a data-featured-link>Explorar la marca <span>→</span></a>
+          </div>
+          <figure class="featured-brand__image">
+            <img data-featured-image alt="" />
+          </figure>
+        </div>
+      </section>
+      <div class="catalog-tools">
+        <div class="catalog-shell catalog-tools__inner">
+          <label class="catalog-search"
+            ><svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <path d="m16.5 16.5 4 4"></path></svg
+            ><input
+              type="search"
+              data-product-search
+              placeholder="Buscar producto o marca"
+              aria-label="Buscar productos"
+          /></label>
+          <div class="catalog-categories" aria-label="Filtrar por marca">
+            <button
+              class="catalog-chip"
+              type="button"
+              data-brand="kikko"
+              aria-pressed="false"
+            >
+              Kikko</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="lee-kum-kee"
+              aria-pressed="false"
+            >
+              Lee Kum Kee</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="becoco"
+              aria-pressed="false"
+            >
+              BeCoco</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="bioplast"
+              aria-pressed="false"
+            >
+              Bioplast</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="arrozame"
+              aria-pressed="false"
+            >
+              Arrozame</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="sanoryza"
+              aria-pressed="false"
+            >
+              Sanoryza</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="te-chapare"
+              aria-pressed="false"
+            >
+              Té Chapare</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="el-cazador"
+              aria-pressed="false"
+            >
+              El Cazador</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="saborati"
+              aria-pressed="false"
+            >
+              Saborati</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="roland-foods"
+              aria-pressed="false"
+            >
+              Roland Foods</button
+            ><button
+              class="catalog-chip"
+              type="button"
+              data-brand="all"
+              aria-pressed="true"
+            >
+              Todos
+            </button>
+          </div>
+        </div>
+      </div>
+      <section class="catalog-results">
+        <div class="catalog-shell">
+          <div class="catalog-results__bar">
+            <h2>Catálogo de productos</h2>
+            <span data-result-count></span>
+          </div>
+          <div class="catalog-products" data-product-grid></div>
+          <p class="catalog-empty" data-empty-state hidden>
+            No encontramos productos con esos filtros. Prueba otra búsqueda o
+            consulta directamente con nuestro equipo.
+          </p>
+        </div>
+      </section>
+    </main>
+    <section
+      class="alz-contact"
+      id="contacto"
+      aria-labelledby="alz-contact-title"
+    >
+      <div class="alz-contact__container">
+        <!-- LEFT COLUMN -->
+        <div class="alz-contact__content">
+          <span class="alz-contact__eyebrow">Hablemos</span>
+          <h2 class="alz-contact__title" id="alz-contact-title">
+            Estamos para ayudarte
+          </h2>
+          <p class="alz-contact__intro">
+            Si necesitas información sobre nuestros productos, marcas o
+            distribución, comunícate directamente con nuestro equipo. Cuéntanos
+            qué necesitas y te orientaremos a través del canal más conveniente.
+          </p>
+          <!-- QUICK CONTACT OPTIONS -->
+          <div
+            class="alz-contact__quick-actions"
+            aria-label="Opciones de contacto rápido"
+          >
+            <!-- Verify that this is also the current WhatsApp number -->
+            <a
+              class="alz-contact__action alz-contact__action--primary"
+              href="https://wa.me/59133494777"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Escribir a Alzarsi por WhatsApp"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path
+                  d="M20.5 11.7a8.3 8.3 0 0 1-12.3 7.2L4 20l1.1-4.1a8.3 8.3 0 1 1 15.4-4.2Zm-8.3-6.5a6.5 6.5 0 0 0-5.6 9.8l.2.4-.6 2.3 2.4-.6.4.2a6.5 6.5 0 1 0 3.2-12.1Zm-3.1 3.2c.2 0 .4 0 .5.4l.7 1.5c.1.2.1.3 0 .5l-.5.7c-.1.1-.2.3 0 .5a5.5 5.5 0 0 0 2.6 2.2c.2.1.4.1.5-.1l.7-.9c.2-.2.3-.2.5-.1l1.5.7c.2.1.4.2.4.3.1.1.1.8-.2 1.5-.3.7-1.4 1.3-2 1.4-.5.1-1.2.1-2-.2a8.6 8.6 0 0 1-3.2-2 7.6 7.6 0 0 1-2.1-2.7c-.6-1.3 0-2.5.5-3 .5-.5 1-.7 1.6-.7Z"
+                />
+              </svg>
+              <span>
+                <small>Respuesta directa</small>
+                Escribir por WhatsApp
+              </span>
+            </a>
+            <a
+              class="alz-contact__action alz-contact__action--secondary"
+              href="tel:+59133494777"
+              aria-label="Llamar a Alzarsi al 3 349 4777"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path
+                  d="M7.1 2.8c.4-.1.8.1 1 .5l1.5 3.5c.2.4.1.8-.2 1.1l-1.5 1.4a14.4 14.4 0 0 0 6.8 6.8l1.4-1.5c.3-.3.7-.4 1.1-.2l3.5 1.5c.4.2.6.6.5 1l-.5 3.4c-.1.5-.5.8-1 .8C10.4 21.1 2.9 13.6 2.9 4.3c0-.5.3-.9.8-1l3.4-.5Z"
+                />
+              </svg>
+              <span>
+                <small>Atención telefónica</small>
+                +591 3 349 4777
+              </span>
+            </a>
+          </div>
+          <!-- EMAIL ACCORDION -->
+          <div class="alz-contact__email-panel">
+            <button
+              class="alz-contact__email-toggle"
+              type="button"
+              id="alz-email-toggle"
+              aria-expanded="false"
+              aria-controls="alz-email-content"
+            >
+              <span class="alz-contact__email-toggle-label">
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path
+                    d="M3 5h18v14H3V5Zm2 2v.4l7 5.2 7-5.2V7H5Zm14 10V9.9l-7 5.2-7-5.2V17h14Z"
+                  />
+                </svg>
+                Enviar una consulta por correo
+              </span>
+              <svg
+                class="alz-contact__chevron"
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+              >
+                <path d="m7 9.5 5 5 5-5" />
+              </svg>
+            </button>
+            <div
+              class="alz-contact__email-content"
+              id="alz-email-content"
+              aria-hidden="true"
+            >
+              <form class="alz-contact__form" id="alz-contact-form">
+                <div class="alz-contact__field-row">
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-name">Nombre y apellido</label>
+                    <input
+                      type="text"
+                      id="alz-contact-name"
+                      name="name"
+                      autocomplete="name"
+                      required
+                    />
+                  </div>
+                  <div class="alz-contact__field">
+                    <label for="alz-contact-phone">Teléfono</label>
+                    <input
+                      type="tel"
+                      id="alz-contact-phone"
+                      name="phone"
+                      autocomplete="tel"
+                      inputmode="tel"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="alz-contact__field">
+                  <label for="alz-contact-email">Correo electrónico</label>
+                  <input
+                    type="email"
+                    id="alz-contact-email"
+                    name="email"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+                <div class="alz-contact__field">
+                  <label for="alz-contact-subject">Motivo de la consulta</label>
+                  <select id="alz-contact-subject" name="subject" required>
+                    <option value="">Selecciona una opción</option>
+                    <option value="Información sobre productos">
+                      Información sobre productos
+                    </option>
+                    <option value="Distribución y ventas">
+                      Distribución y ventas
+                    </option>
+                    <option value="Marcas y proveedores">
+                      Marcas y proveedores
+                    </option>
+                    <option value="Atención al cliente">
+                      Atención al cliente
+                    </option>
+                    <option value="Otra consulta">Otra consulta</option>
+                  </select>
+                </div>
+                <div class="alz-contact__field">
+                  <label for="alz-contact-message">Mensaje</label>
+                  <textarea
+                    id="alz-contact-message"
+                    name="message"
+                    rows="5"
+                    required
+                  ></textarea>
+                </div>
+                <div class="alz-contact__form-footer">
+                  <p class="alz-contact__form-note">
+                    Los campos son obligatorios.
+                  </p>
+                  <button class="alz-contact__submit" type="submit">
+                    Preparar correo
+                    <svg aria-hidden="true" viewBox="0 0 24 24">
+                      <path
+                        d="m5 12 14-7-4 14-3.2-5.8L5 12Zm3.2-.3 4.5 1.6 1.7 3.1L17 8l-8.8 3.7Z"
+                      />
+                    </svg>
+                  </button>
+                </div>
+                <p
+                  class="alz-contact__status"
+                  id="alz-contact-status"
+                  role="status"
+                  aria-live="polite"
+                ></p>
+              </form>
+            </div>
+          </div>
+          <!-- BUSINESS DETAILS -->
+          <address class="alz-contact__details">
+            <a href="mailto:contacto@alzarsi.com"> contacto@alzarsi.com </a>
+            <span aria-hidden="true"></span>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Av.+Luis+Saavedra+Suarez+9335+Santa+Cruz+Bolivia"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Santa Cruz de la Sierra, Bolivia
+            </a>
+          </address>
+        </div>
+        <!-- RIGHT COLUMN / CUSTOM VECTOR ILLUSTRATION -->
+        <div class="alz-contact__visual" aria-hidden="true">
+          <div class="alz-contact__visual-heading">
+            <span>Alzarsi Ltda.</span>
+            <p>Conectando marcas, productos y personas.</p>
+          </div>
+          <svg
+            class="alz-contact__illustration"
+            viewBox="0 0 620 660"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="alz-contact__shape alz-contact__shape--light"
+              d="M79 140C168 44 349 24 486 93c115 58 153 210 88 331-68 128-230 189-368 135C65 503-14 372 18 249c11-43 31-80 61-109Z"
+            />
+            <path
+              class="alz-contact__shape alz-contact__shape--blue"
+              d="M365 88c98 13 179 85 195 184 15 92-33 183-112 230-67 39-145 42-214 16 77-18 139-75 163-149 30-94 1-199-71-267 13-7 26-12 39-14Z"
+            />
+            <circle
+              class="alz-contact__accent-circle"
+              cx="98"
+              cy="455"
+              r="25"
+            />
+            <circle
+              class="alz-contact__accent-circle--small"
+              cx="512"
+              cy="122"
+              r="11"
+            />
+            <!-- DESK -->
+            <path class="alz-contact__line" d="M265 419h274" />
+            <path class="alz-contact__line" d="M485 421v133" />
+            <path class="alz-contact__line" d="M315 421v133" />
+            <path class="alz-contact__line" d="M278 555h248" />
+            <!-- COMPUTER -->
+            <rect
+              class="alz-contact__screen"
+              x="365"
+              y="278"
+              width="146"
+              height="101"
+              rx="6"
+            />
+            <path class="alz-contact__line" d="M438 380v38" />
+            <path class="alz-contact__line" d="M406 418h65" />
+            <!-- PERSON -->
+            <circle class="alz-contact__skin" cx="230" cy="214" r="44" />
+            <path
+              class="alz-contact__hair"
+              d="M190 215c-5-45 23-78 65-72 27 4 41 25 37 52-19-1-38-10-51-24-6 24-23 38-51 44Z"
+            />
+            <path
+              class="alz-contact__shirt"
+              d="M172 295c14-34 43-51 77-43 37 8 57 40 59 87l5 82H145l9-81c2-19 8-34 18-45Z"
+            />
+            <path
+              class="alz-contact__skin"
+              d="m263 287 68 61 66-26 12 22-84 43-80-60 18-40Z"
+            />
+            <path
+              class="alz-contact__line alz-contact__line--thin"
+              d="M203 258c5 19 18 31 38 35"
+            />
+            <!-- MESSAGE CARDS -->
+            <g class="alz-contact__message">
+              <rect x="70" y="68" width="201" height="84" rx="5" />
+              <path d="m238 151 4 31-35-31" />
+              <path class="alz-contact__message-line" d="M100 101h130" />
+              <path class="alz-contact__message-line" d="M100 124h84" />
+            </g>
+            <g class="alz-contact__message alz-contact__message--small">
+              <rect x="399" y="188" width="145" height="66" rx="5" />
+              <path d="m420 253-10 23 35-23" />
+              <path class="alz-contact__message-line" d="M425 215h91" />
+              <path class="alz-contact__message-line" d="M425 235h55" />
+            </g>
+            <!-- PACKAGE / DISTRIBUTION DETAIL -->
+            <g class="alz-contact__package">
+              <path d="m98 492 70-35 71 35-71 35-70-35Z" />
+              <path d="M98 492v81l70 35v-81l-70-35Z" />
+              <path d="M239 492v81l-71 35v-81l71-35Z" />
+              <path class="alz-contact__package-line" d="m132 475 72 35" />
+            </g>
+          </svg>
+          <div class="alz-contact__visual-footer">
+            <span>La Paz</span>
+            <span>Santa Cruz</span>
+            <span>Distribución nacional</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <alzarsi-footer></alzarsi-footer>
+    <div class="catalog-modal" data-product-modal hidden>
+      <section
+        class="catalog-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="catalog-modal-title"
+      >
+        <button
+          class="catalog-modal__close"
+          type="button"
+          data-modal-close
+          aria-label="Cerrar"
+        >
+          ×
+        </button>
+        <div class="catalog-modal__image">
+          <img data-modal-image src="" alt="" />
+        </div>
+        <div class="catalog-modal__copy">
+          <p data-modal-brand></p>
+          <h2 id="catalog-modal-title" data-modal-name></h2>
+          <dl class="catalog-modal__facts">
+            <div>
+              <dt>Presentación</dt>
+              <dd data-modal-size></dd>
+            </div>
+            <div>
+              <dt>Categoría</dt>
+              <dd data-modal-category></dd>
+            </div>
+            <div>
+              <dt>Disponibilidad</dt>
+              <dd data-modal-city></dd>
+            </div>
+            <div>
+              <dt>Código de barras</dt>
+              <dd data-modal-barcode></dd>
+            </div>
+            <div>
+              <dt>Unidades por caja</dt>
+              <dd data-modal-case></dd>
+            </div>
+          </dl>
+          <a
+            class="catalog-modal__contact"
+            data-modal-contact
+            href="#"
+            target="_blank"
+            rel="noopener"
+            >Consultar disponibilidad</a
+          >
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

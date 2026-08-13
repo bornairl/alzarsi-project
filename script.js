@@ -28,10 +28,10 @@ const footerTemplate = `
       </nav>
       <nav class="alz-compact-footer__column" aria-label="Productos">
         <h3>Productos</h3>
-        <a href="index.html#productos">La Paz</a>
-        <a href="index.html#productos">Santa Cruz</a>
+        <a href="productos.html?city=la-paz">La Paz</a>
+        <a href="productos.html?city=santa-cruz">Santa Cruz</a>
         <a href="index.html#marcas">Nuestras marcas</a>
-        <a href="index.html#productos">Ver productos</a>
+        <a href="productos.html">Ver productos</a>
       </nav>
       <section class="alz-compact-footer__column alz-compact-footer__contact" aria-labelledby="footer-contact-title">
         <h3 id="footer-contact-title">Contáctanos</h3>
