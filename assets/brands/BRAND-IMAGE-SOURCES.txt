@@ -1,0 +1,26 @@
+Brand image sources added in the multi-brand template batch
+
+BéCoco
+- Campaign and editorial crops: user-supplied official BéCoco artwork, bekoko(1).jpg.
+
+BioPlast
+- Hero and editorial crops: Unsplash image supplied by the project owner.
+  https://images.unsplash.com/photo-1728049803340-473587f7943b
+
+El Cazador
+- Hero and editorial crops: user-supplied El Cazador product photograph, elcazador.jpeg.
+
+Roland Foods
+- Campaign hero: user-supplied Roland Foods New Branding artwork.
+- Product and editorial imagery: official Roland Foods product catalog and product spotlights.
+  https://www.rolandfoods.com/products
+  https://rolandfoods.com/product-spotlights/asian-chili-sauces
+  https://rolandfoods.com/product-spotlights/hearts-of-palm
+
+Té Chapare
+- Hero and editorial crops: user-supplied official Té Chapare photograph, techapare.jpg.
+
+Saborati
+- Product and editorial imagery: official Saborati website.
+  https://saborati.weebly.com/productos.html
+  https://saborati.weebly.com/galeriacutea-de-fotos.html
